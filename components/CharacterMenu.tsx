@@ -34,6 +34,7 @@ const CharacterMenu = ({ char, emote, boxFont, selection, setChar, setEmote, set
       <select id='charMenu' className='menuOptions knife' value={char} name='characters' onChange={switchChar}>
         <option value='Chie'>Chie Satonaka</option>
         <option value='Eri'>Eri Minami</option>
+        <option value='Fox'>Fox</option>
         <option value='Igor'>Igor</option>
         <option value='Kanji'>Kanji Tatsumi</option>
         <option value='Morooka'>Kinshiro Morooka</option>
