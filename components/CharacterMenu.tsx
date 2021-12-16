@@ -32,18 +32,20 @@ const CharacterMenu = ({ char, emote, boxFont, selection, setChar, setEmote, set
     <div className='menuDivs'>
       <div className='menuLabels'>Character</div>
       <select id='charMenu' className='menuOptions knife' value={char} name='characters' onChange={switchChar}>
-        <option value='Ann'>Ann Takamaki</option>
-        <option value='Caroline'>Caroline</option>
-        <option value='Chihaya'>Chihaya Mifune</option>
-        <option value='Hiraguchi'>Coach Hiraguchi</option>
-        <option value='Futaba'>Futaba Sakura</option>
-        <option value='Akechi'>Goro Akechi</option>
-        <option value='Haru'>Haru Okumura</option>
-        <option value='Hifumi'>Hifumi Togo</option>
-        <option value='Ohya'>Ichiko Ohya</option>
-        <option value='Madarame'>Ichiryusai Madarame</option>
+        <option value='Chie'>Chie Satonaka</option>
+        <option value='Eri'>Eri Minami</option>
         <option value='Igor'>Igor</option>
-        <option value='Jose'>Jose</option>
+        <option value='Kanji'>Kanji Tatsumi</option>
+        <option value='Morooka'>Kinshiro Morooka</option>
+        <option value='Marie'>Marie</option>
+        <option value='Nanako'>Nanako Dojima</option>
+        <option value='Rise'>Rise Kujikawa</option>
+        <option value='Dojima'>Ryotaro Dojima</option>
+        <option value='Teddie'>Teddie</option>
+        <option value='Yosuke'>Yosuke Hanamura</option>
+        <option value='Yukiko'>Yukiko Amagi</option>
+
+
         <option value='Kaneshiro'>Junya Kaneshiro</option>
         <option value='Justine'>Justine</option>
         <option value='Okumura'>Kunikazu Okumura</option>

@@ -34,7 +34,7 @@
 
 body {
   font-family: 'KoreanKRSM';
-  background-color: #FF0505;
+  background-color: #FEE727;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +51,11 @@ body {
   justify-content: space-between;
 
   margin-bottom: 10px;
+}
+
+#p4logo {
+  height: 151px;
+  width: 200px
 }
 
 #title {
@@ -375,7 +380,7 @@ svg {
     display: none;
   }
 
-  #p5logo {
+  #p4logo {
     width: 150px;
     height: 91px;
   }
