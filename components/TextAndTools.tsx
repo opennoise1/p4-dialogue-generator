@@ -55,7 +55,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <div id='dialogueHeader'>Dialogue</div>
           <textarea 
             id='textField' 
-            placeholder='Hey, Inmate! Character portraits contain spoilers!'
+            placeholder='Attention Junes shoppers: Character portraits contain spoilers!'
             rows={3}
             cols={45}
             defaultValue={text}

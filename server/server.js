@@ -31,5 +31,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Alibaba here! The Phantom Thieves are listening in on localhost:${PORT}!`);
+  console.log(`The Midnight Channel is currently playing on localhost:${PORT}!`);
 });
