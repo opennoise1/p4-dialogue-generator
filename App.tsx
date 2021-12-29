@@ -5,9 +5,9 @@ import Header from './components/Header';
 
 const App = () => {
   // Initial values of all three menus, which will in turn determine our portrait
-  const [char, setChar] = useState<string>('Ann');
-  const [emote, setEmote]= useState<string>('Happy');
-  const [costume, setCostume] = useState<string>('Gym Clothes');
+  const [char, setChar] = useState<string>('Yukiko');
+  const [emote, setEmote]= useState<string>('Netural');
+  const [costume, setCostume] = useState<string>('Summer Uniform');
 
   // Initial values of dialogue text, font and current box selection which will determine our dialogue box
   const [text, setText] = useState<string>('');
