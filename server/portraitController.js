@@ -14,7 +14,6 @@ portraitController.emotionParser = (req, res, next) => {
 };
 
 portraitController.costumeParser = (req, res, next) => {
-  console.log("hey");
   const portraits = readdirSync(path.join(__dirname, req.body.emotion));
   if (portraits[0] === '.DS_Store') {
     portraits = portraits.slice(1);

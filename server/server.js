@@ -31,5 +31,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`The Midnight Channel is on localhost:${PORT}!`);
+  console.log(`That's not the Midnight Channel — that's localhost:${PORT}!`);
 });

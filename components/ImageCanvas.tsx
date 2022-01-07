@@ -72,7 +72,7 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         ref={portraitCanvas} 
         id='portraitCanvas'
         width='1275' 
-        height='500' 
+        height='900' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -80,7 +80,7 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         ref={boxCanvas} 
         id='boxCanvas'
         width='1275' 
-        height='500' 
+        height='900' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -88,7 +88,7 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         ref={textCanvas} 
         id='textCanvas'
         width='1275' 
-        height='500' 
+        height='900' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -101,7 +101,7 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         className='hidden'
         src={portrait}
         crossOrigin="anonymous"
-        onLoad={() => drawPortrait(character.current, simplePositions[char], 500, 500)}
+        onLoad={() => drawPortrait(character.current, simplePositions[char], 400, 449)}
       />
       <img
         alt='Dialogue box'
