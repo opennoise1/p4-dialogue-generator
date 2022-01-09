@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import CharacterMenu from './CharacterMenu';
 import EmotionMenu from './EmotionMenu';
 import CostumeMenu from './CostumeMenu';
-import BoxMenu from './BoxMenu';
-
-import { boxDirectory } from '../utils/boxFinder'
+// import BoxMenu from './BoxMenu';
 
 const Menus = ({ char, setChar, emote, setEmote, costume, 
   setCostume, setPortrait, font, box, boxFont, setBox, selection, setSelection }) => {
@@ -46,10 +44,10 @@ const Menus = ({ char, setChar, emote, setEmote, costume,
         <EmotionMenu {...menuProps} />
         <CostumeMenu {...menuProps} />
         {/* Only display the box menu if the character has multiple box options */}
-        {boxDirectory[char]
+        {/* {boxDirectory[char]
           ? <BoxMenu {...menuProps} />
           : null
-        }
+        } */}
       </div>
     </>
   );

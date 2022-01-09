@@ -1,10 +1,10 @@
 {
-  "name": "p5-generator",
+  "name": "p4-generator",
   "version": "1.0.0",
-  "description": "P5 Dialogue Generator",
+  "description": "P4 Dialogue Generator",
   "private": true,
   "engines": {
-    "node": "14.16.0"
+    "node": "16.13.1"
   },
   "dependencies": {
     "@babel/preset-env": "^7.14.4",
@@ -38,7 +38,7 @@
     "build": "webpack"
   },
   "keywords": [
-    "Persona 5",
+    "Persona 4",
     "generator",
     "dialogue"
   ],

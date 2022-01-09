@@ -149,7 +149,7 @@ body {
 
 #canvasDiv {
   position: relative;
-  background-image: url('../images/backgroundDot.png');
+  /* background-image: url('../images/backgroundDot.png'); */
   background-size: 1275px 500px;
   border: 2px solid black;
   line-height: 0; /* Eliminates small bit of padding at the bottom of canvas-containing div */
@@ -179,10 +179,6 @@ body {
 
 select {
   width: 200px;
-}
-
-.knife:hover {
-  cursor: url('../images/knife.png') 0 44, pointer;
 }
 
 #textAndTools {
