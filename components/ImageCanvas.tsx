@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { simplePositions, findSpecialPosition } from '../utils/portraitPositions';
 
-const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
+const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxFront }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
-  const boxCanvas: React.MutableRefObject<any> = useRef(null);
+  const boxBackCanvas: React.MutableRefObject<any> = useRef(null);
+  const boxFrontCanvas: React.MutableRefObject<any> = useRef(null);
   const textCanvas: React.MutableRefObject<any> = useRef(null);
   const character: React.MutableRefObject<any> = useRef(null);
-  const dialogueBox: React.MutableRefObject<any> = useRef(null);
+  const dialogueBoxBack: React.MutableRefObject<any> = useRef(null);
+  const dialogueBoxFront: React.MutableRefObject<any> = useRef(null);
   let pCtx: CanvasRenderingContext2D;
   let bCtx: CanvasRenderingContext2D;
   let tCtx: CanvasRenderingContext2D;
@@ -14,11 +16,15 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
   useEffect(() => {
     // Initialize text canvas and clear current text
     tCtx = textCanvas.current.getContext('2d');
-    tCtx.fillStyle = '#FFFFFF';
-    tCtx.font = `18pt ${font}`;
-    tCtx.clearRect(0, 0, 1275, 500);
+    tCtx.clearRect(0, 0, 1275, 900);
+    tCtx.font = `22pt SkipStd-B`;
+    
+    // Draw or redraw name
+    tCtx.fillStyle = '#4B2A14';
+    tCtx.fillText(name, 65, 700);
 
     // Draw or redraw text
+    tCtx.fillStyle = '#FFFFFF';
     const rows = text.split('\n');
     if (rows[1] === undefined) rows[1] = '';
     if (rows[2] === undefined) rows[2] = '';
@@ -32,12 +38,12 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
     tCtx.fillText(rows[1], 500, 403);
     tCtx.fillText(rows[2], 500, 433);
     return;
-  }, [text, font]);
+  }, [text, name]);
 
   const drawPortrait = (charImage: CanvasImageSource, portraitXY: number[], w: number, h: number) => {
     // Initialize portrait canvas and clear current portrait
     pCtx = portraitCanvas.current.getContext('2d');
-    pCtx.clearRect(0, 0, 1275, 500);
+    pCtx.clearRect(0, 0, 1275, 900);
 
     // Look up draw position for requested portrait and draw new portrait
     let x;
@@ -54,20 +60,36 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
     return;
   };
 
-  const drawBox = (boxImage: CanvasImageSource) => {
+  const drawBoxBack = (boxImage: CanvasImageSource) => {
     // Initialize box canvas, clear current box and draw new box
-    bCtx = boxCanvas.current.getContext('2d');
+    bCtx = boxBackCanvas.current.getContext('2d');
     const width: number = boxImage.width as number;
     const height: number = boxImage.height as number;
-    // For particularly tall boxes, determine the number of pixels to offset the Y coordinate where it's drawn
-    const heightOffset: number = height - 250;
-    bCtx.clearRect(0, 0, 1275, 500);
-    bCtx.drawImage(boxImage, 320, 250 - heightOffset, width, height);
+    bCtx.clearRect(0, 0, 1275, 900);
+    bCtx.drawImage(boxImage, 53, 644, 1200, 256);
+    return;
+  };
+
+  const drawBoxFront = (boxImage: CanvasImageSource) => {
+    // Initialize box canvas, clear current box and draw new box
+    bCtx = boxFrontCanvas.current.getContext('2d');
+    const width: number = boxImage.width as number;
+    const height: number = boxImage.height as number;
+    bCtx.clearRect(0, 0, 1275, 900);
+    bCtx.drawImage(boxImage, 32.5, 721, 1200, 169);
     return;
   };
 
   return (
     <main id='canvasDiv'>
+      <canvas
+        ref={boxBackCanvas}
+        id='boxBackCanvas'
+        width='1275'
+        height='900'
+      >
+        Sorry! This generator requires a browser that supports HTML5!
+      </canvas>
       <canvas 
         ref={portraitCanvas} 
         id='portraitCanvas'
@@ -77,8 +99,8 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
       <canvas 
-        ref={boxCanvas} 
-        id='boxCanvas'
+        ref={boxFrontCanvas} 
+        id='boxFrontCanvas'
         width='1275' 
         height='900' 
       >
@@ -95,6 +117,15 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
       {/* NOTE: We're rendering portrait and box img tags so they can be referenced for the canvas.
       They will be hidden via the stylesheet */}
       <img
+        alt='Dialogue box back'
+        ref={dialogueBoxBack}
+        id='boxBack'
+        className='hidden'
+        src={boxBack}
+        crossOrigin="anonymous"
+        onLoad={() => drawBoxBack(dialogueBoxBack.current)}
+      />
+      <img
         alt='Potrait'
         ref={character}
         id='portrait'
@@ -104,13 +135,13 @@ const ImageCanvas = ({ portrait, text, font, char, emote, costume, box }) => {
         onLoad={() => drawPortrait(character.current, simplePositions[char], 400, 449)}
       />
       <img
-        alt='Dialogue box'
-        ref={dialogueBox}
-        id='box'
+        alt='Dialogue box front'
+        ref={dialogueBoxFront}
+        id='boxFront'
         className='hidden'
-        src={box}
+        src={boxFront}
         crossOrigin="anonymous"
-        onLoad={() => drawBox(dialogueBox.current)}
+        onLoad={() => drawBoxFront(dialogueBoxFront.current)}
       />
     </main>
   );

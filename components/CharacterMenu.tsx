@@ -1,10 +1,9 @@
 import { useEffect, SyntheticEvent } from 'react';
 
-const CharacterMenu = ({ char, emote, boxFont, selection, setChar, setEmote, setEmoteMenus, setBox }) => {
+const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
 
   const switchChar = (e: SyntheticEvent<HTMLSelectElement>) => {
     setChar((e.target as HTMLSelectElement).value);
-    setBox(`../images/boxes/db-${selection}-${boxFont}.png`);
     return;
   };
 
@@ -31,7 +30,7 @@ const CharacterMenu = ({ char, emote, boxFont, selection, setChar, setEmote, set
   return (
     <div className='menuDivs'>
       <div className='menuLabels'>Character</div>
-      <select id='charMenu' className='menuOptions knife' value={char} name='characters' onChange={switchChar}>
+      <select id='charMenu' className='menuOptions' value={char} name='characters' onChange={switchChar}>
         <option value='Ai'>Ai Ebihara</option>
         <option value='Ayane'>Ayane Matsunaga</option>
         <option value='Chie'>Chie Satonaka</option>

@@ -21,7 +21,7 @@ const Header = () => {
       </div>
       <div id='subhead'>
         <p id='credits'>
-          <a href='https://github.com/opennoise1/p5-dialogue-generator' target='_blank'>Code</a> by <a href='https://twitter.com/opennoise' target='_blank'>@opennoise</a>.
+          <a href='https://github.com/opennoise1/p4-dialogue-generator' target='_blank'>Code</a> by <a href='https://twitter.com/opennoise' target='_blank'>@opennoise</a>.
           <br></br>
           All artwork by <a href='https://twitter.com/Atlus_West' target='_blank'>Atlus</a>, displayed here under fair use.
         </p>

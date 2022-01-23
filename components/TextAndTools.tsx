@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Menus from './Menus';
 
-const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, text, setText, 
-  font, setFont, boxFont, setBoxFont, box, setBox, selection, setSelection }) => {
+const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, name, setName,
+  text, setText, version, setVersion, boxBack, setBack, boxFront, setFront }) => {
 
   const toolProps: any = {
     char,
@@ -12,18 +12,18 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
     costume,
     setCostume,
     setPortrait,
-    box,
-    setBox,
-    boxFont,
-    setBoxFont,
-    font,
-    selection,
-    setSelection,
+    version,
+    setVersion,
+    boxBack,
+    setBack,
+    boxFront,
+    setFront,
   }
 
   useEffect(() => {
-    setBox(`../images/boxes/db-${selection}-${boxFont}.png`);
-  }, [boxFont]);
+    setBack(`../images/boxes/db-${version}-back.png`);
+    setFront(`../images/boxes/db-${version}-front.png`);
+  }, [version]);
 
   const downloadImage = (): void => {
     const downloadCanvas: HTMLCanvasElement = document.createElement('canvas');
@@ -51,6 +51,16 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
   return (
     <div id='textAndTools'>
       <div id='textAndDownload'>
+        <div id='enterName'>
+          <div id='nameHeader'>Name</div>
+          <textarea
+            id='nameField'
+            rows={1}
+            cols={20}
+            defaultValue={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div id='enterDialogue'>
           <div id='dialogueHeader'>Dialogue</div>
           <textarea 
@@ -78,34 +88,24 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <div>Download</div>    
         </div>
       </div>
-      <div id='menusAndFonts'>
+      <div id='menusAndBoxes'>
         <Menus {...toolProps} />
-        <div id='fontDiv'>
-          <div id='fontHeader'>Font Select</div>
-          <div id='fontChoices'>
+        <div id='versionDiv'>
+          <div id='versionHeader'>Box Select</div>
+          <div id='versionChoices'>
             <div 
-              id='vanillaFont' 
-              className='fonts KRSMDivs knife' 
-              onClick={() => { setFont('KoreanKRSM'); setBoxFont('KoreanKRSM'); }}
+              id='vanillaVersion' 
+              className='selections skipDivs' 
+              onClick={() => { setVersion('vanilla'); }}
             >
-              KoreanKRSM &#40;Persona 5&#41;
+              Persona 4
             </div>
             <div 
-              id='royalFont' 
-              className='fonts optimaDivs knife' 
-              onClick={() => { setFont('Optima nova LT'); setBoxFont('Optima nova LT'); }}
+              id='goldenVersion' 
+              className='selections skipDivs' 
+              onClick={() => { setVersion('golden'); }}
             >
-              Optima Nova Black &#40;Persona 5 Royal&#41;
-            </div>
-            <div 
-              id='japaneseFont' 
-              className='fonts slumpDivs knife' 
-              onClick={() => setFont('SlumpDB')}
-              lang='ja'
-            >
-              Slump DB &#40;ペルソナ5 - 日本語&#41;
-              <br></br>
-              <span id='nameNote'>&#40;Japanese Character Name Coming Soon!&#41;</span>
+              Persona 4 Golden
             </div>
           </div>
         </div>
