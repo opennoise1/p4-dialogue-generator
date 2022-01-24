@@ -30,7 +30,7 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
   return (
     <div className='menuDivs'>
       <div className='menuLabels'>Character</div>
-      <select id='charMenu' className='menuOptions' value={char} name='characters' onChange={switchChar}>
+      <select id='charMenu' className='menuOptions cursor' value={char} name='characters' onChange={switchChar}>
         <option value='Ai'>Ai Ebihara</option>
         <option value='Ayane'>Ayane Matsunaga</option>
         <option value='Chie'>Chie Satonaka</option>

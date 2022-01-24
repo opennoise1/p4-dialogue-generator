@@ -56,7 +56,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <textarea
             id='nameField'
             rows={1}
-            cols={20}
+            cols={50}
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -67,14 +67,14 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
             id='textField' 
             placeholder='Attention Junes shoppers: Character portraits contain spoilers!'
             rows={3}
-            cols={45}
+            cols={50}
             defaultValue={text}
             onChange={(e) => setText(e.target.value)} 
           />
         </div>
         <div 
           id='download'
-          className='knife'
+          className='cursor'
           onClick={downloadImage}
         >
           <svg 
@@ -95,14 +95,14 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <div id='versionChoices'>
             <div 
               id='vanillaVersion' 
-              className='selections skipDivs' 
+              className='selections skipDivs cursor' 
               onClick={() => { setVersion('vanilla'); }}
             >
               Persona 4
             </div>
             <div 
               id='goldenVersion' 
-              className='selections skipDivs' 
+              className='selections skipDivs cursor' 
               onClick={() => { setVersion('golden'); }}
             >
               Persona 4 Golden

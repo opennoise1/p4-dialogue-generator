@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { simplePositions, findSpecialPosition } from '../utils/portraitPositions';
+import { goldenPositions, vanillaPositions, findSpecialPosition } from '../utils/portraitPositions';
 
-const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxFront }) => {
+const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxFront, version }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
   const boxBackCanvas: React.MutableRefObject<any> = useRef(null);
   const boxFrontCanvas: React.MutableRefObject<any> = useRef(null);
@@ -13,42 +13,44 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
   let bCtx: CanvasRenderingContext2D;
   let tCtx: CanvasRenderingContext2D;
 
+  const boxPositions = {
+    goldenBack: [63, 544, 1200, 256],
+    goldenFront: [42.5, 621, 1200, 171],
+    vanillaBack: [63, 524, 1225, 274],
+    vanillaFront: [75, 600, 1200, 175],
+  };
+
   useEffect(() => {
     // Initialize text canvas and clear current text
     tCtx = textCanvas.current.getContext('2d');
-    tCtx.clearRect(0, 0, 1275, 900);
-    tCtx.font = `22pt SkipStd-B`;
+    tCtx.clearRect(0, 0, 1275, 800);
+    tCtx.font = `28pt SkipStd-B`;
     
     // Draw or redraw name
     tCtx.fillStyle = '#4B2A14';
-    tCtx.fillText(name, 65, 700);
+    tCtx.fillText(name, 82, 615);
 
     // Draw or redraw text
     tCtx.fillStyle = '#FFFFFF';
     const rows = text.split('\n');
     if (rows[1] === undefined) rows[1] = '';
     if (rows[2] === undefined) rows[2] = '';
-    if (rows[0] && rows[1] && !rows[2]) {
-      // Centers text in two-line dialogue boxes
-      tCtx.fillText(rows[0], 500, 387);
-      tCtx.fillText(rows[1], 500, 417);
-      return;
-    }
-    tCtx.fillText(rows[0], 500, 373);
-    tCtx.fillText(rows[1], 500, 403);
-    tCtx.fillText(rows[2], 500, 433);
+
+    tCtx.fillText(rows[0], 95, 670);
+    tCtx.fillText(rows[1], 95, 715);
+    tCtx.fillText(rows[2], 95, 760);
     return;
   }, [text, name]);
 
   const drawPortrait = (charImage: CanvasImageSource, portraitXY: number[], w: number, h: number) => {
     // Initialize portrait canvas and clear current portrait
     pCtx = portraitCanvas.current.getContext('2d');
-    pCtx.clearRect(0, 0, 1275, 900);
+    pCtx.clearRect(0, 0, 1275, 800);
 
     // Look up draw position for requested portrait and draw new portrait
-    let x;
-    let y;
-    if (!simplePositions[char]) {
+    let x: number;
+    let y: number;
+    if (!goldenPositions[char]) {
       const specialPosition = findSpecialPosition(char, emote, costume);
       x = specialPosition[0];
       y = specialPosition[1];
@@ -63,20 +65,27 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
   const drawBoxBack = (boxImage: CanvasImageSource) => {
     // Initialize box canvas, clear current box and draw new box
     bCtx = boxBackCanvas.current.getContext('2d');
-    const width: number = boxImage.width as number;
-    const height: number = boxImage.height as number;
-    bCtx.clearRect(0, 0, 1275, 900);
-    bCtx.drawImage(boxImage, 53, 644, 1200, 256);
+    bCtx.clearRect(0, 0, 1275, 800);
+    
+    if (version === 'golden') {
+      bCtx.drawImage(boxImage, boxPositions.goldenBack[0], boxPositions.goldenBack[1], boxPositions.goldenBack[2], boxPositions.goldenBack[3]);
+    } else {
+      bCtx.drawImage(boxImage, boxPositions.vanillaBack[0], boxPositions.vanillaBack[1], boxPositions.vanillaBack[2], boxPositions.vanillaBack[3]);
+    }
+    
     return;
   };
 
   const drawBoxFront = (boxImage: CanvasImageSource) => {
     // Initialize box canvas, clear current box and draw new box
     bCtx = boxFrontCanvas.current.getContext('2d');
-    const width: number = boxImage.width as number;
-    const height: number = boxImage.height as number;
-    bCtx.clearRect(0, 0, 1275, 900);
-    bCtx.drawImage(boxImage, 32.5, 721, 1200, 169);
+    bCtx.clearRect(0, 0, 1275, 800);
+
+    if (version === 'golden') {
+      bCtx.drawImage(boxImage, boxPositions.goldenFront[0], boxPositions.goldenFront[1], boxPositions.goldenFront[2], boxPositions.goldenFront[3]);
+    } else {
+      bCtx.drawImage(boxImage, boxPositions.vanillaFront[0], boxPositions.vanillaFront[1], boxPositions.vanillaFront[2], boxPositions.vanillaFront[3]);
+    }
     return;
   };
 
@@ -86,7 +95,7 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
         ref={boxBackCanvas}
         id='boxBackCanvas'
         width='1275'
-        height='900'
+        height='800'
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -94,7 +103,7 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
         ref={portraitCanvas} 
         id='portraitCanvas'
         width='1275' 
-        height='900' 
+        height='800' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -102,7 +111,7 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
         ref={boxFrontCanvas} 
         id='boxFrontCanvas'
         width='1275' 
-        height='900' 
+        height='800' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -110,7 +119,7 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
         ref={textCanvas} 
         id='textCanvas'
         width='1275' 
-        height='900' 
+        height='800' 
       >
         Sorry! This generator requires a browser that supports HTML5!
       </canvas>
@@ -132,7 +141,7 @@ const ImageCanvas = ({ portrait, name, text, char, emote, costume, boxBack, boxF
         className='hidden'
         src={portrait}
         crossOrigin="anonymous"
-        onLoad={() => drawPortrait(character.current, simplePositions[char], 400, 449)}
+        onLoad={() => drawPortrait(character.current, goldenPositions[char], 400, 449)}
       />
       <img
         alt='Dialogue box front'
