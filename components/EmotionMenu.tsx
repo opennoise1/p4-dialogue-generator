@@ -33,6 +33,7 @@ if (emoteMenus.length) {
       }  
     })
     .catch(err => console.log(err));
+    return;
   }, [char, emote]);
 
 

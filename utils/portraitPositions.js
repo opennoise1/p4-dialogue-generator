@@ -3,7 +3,7 @@ const goldenPositions = {
 };
 
 const vanillaPositions = {
-
+  Chie: [890, 153],
 }
 
 const findSpecialPosition = (char, emote, costume) => {
@@ -20,4 +20,4 @@ const findSpecialPosition = (char, emote, costume) => {
   }
 }
 
-export { goldenPositions, vanillaPositions, findSpecialPosition };
+export { goldenPositions, vanillaPositions };

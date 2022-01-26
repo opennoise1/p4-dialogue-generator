@@ -25,6 +25,7 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
       }
     })
     .catch(err => console.log(err));
+    return;
   }, [char]);
 
   return (

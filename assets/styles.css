@@ -188,6 +188,15 @@ select {
   margin-right: 20px;
 }
 
+#enterName {
+  display: flex;
+  flex-direction: column;
+}
+
+#nameHeader {
+  margin-top: 25px;
+}
+
 #enterDialogue {
   display: flex;
   flex-direction: column;
@@ -195,7 +204,6 @@ select {
 }
 
 #dialogueHeader {
-  margin-top: 25px;
   font-size: 12pt;
   text-align: left;
 }
@@ -282,7 +290,7 @@ svg {
 
 /* Font Selection */
 
-#fontDiv, #versionDiv {
+#versionDiv {
   margin-top: 10px;
 
   display: flex;
@@ -290,17 +298,22 @@ svg {
   align-items: flex-start;
 }
 
-#fontHeader, #versionHeader {
+#versionHeader {
   text-align: left;
   font-size: 12pt;
 }
 
-#fontChoices, #versionChoices {
+#versionChoices {
   display: flex;
-  align-items: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .selections {
+  padding: 3px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  width: 200px;
   margin-bottom: 6px;
   border: 2px solid black;
   box-shadow: 3px 3px black;

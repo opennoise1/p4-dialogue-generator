@@ -23,6 +23,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
   useEffect(() => {
     setBack(`../images/boxes/db-${version}-back.png`);
     setFront(`../images/boxes/db-${version}-front.png`);
+    return;
   }, [version]);
 
   const downloadImage = (): void => {
@@ -86,6 +87,12 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
             <path d="M12 24l-8-9h6v-15h4v15h6z"/>
           </svg>
           <div>Download</div>    
+        </div>
+        <div
+          id='upload'
+          className='cursor'
+        >
+          <input type='file' accept='image/*'></input>
         </div>
       </div>
       <div id='menusAndBoxes'>
