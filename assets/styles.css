@@ -1,14 +1,16 @@
 @font-face {
   font-family: 'SkipStd-B';
-  src: url('fonts/SkipStd-B-AlphaNum.eot');
+  src: url('fonts/SkipStd-B-AlphaNum.otf') format('opentype');
+  /* src: url('fonts/SkipStd-B-AlphaNum.eot');
   src: url('fonts/SkipStd-B-AlphaNum.eot?#iefix') format('embedded-opentype'),
        url('fonts/SkipStd-B-AlphaNum.svg#SkipStd-B-AlphaNum') format('svg'),
        url('fonts/SkipStd-B-AlphaNum.ttf') format('truetype'),
        url('fonts/SkipStd-B-AlphaNum.woff') format('woff'),
-       url('fonts/SkipStd-B-AlphaNum.woff2') format('woff2');
+       url('fonts/SkipStd-B-AlphaNum.woff2') format('woff2'); */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  font-stretch: expanded;
 }
 
 body {
@@ -221,13 +223,20 @@ select {
   box-shadow: 4px 4px black;
 }
 
+#downloadAndUpload {
+  display: flex;
+  justify-content: space-between;
+}
+
 #download {
+  width: 253px;
   padding-top: 5px;
   padding-bottom: 5px;
-  width: 99.5%;
+  margin-right: 30px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   border: 2px solid black;
   box-shadow: 3px 3px black;
@@ -237,7 +246,7 @@ select {
   text-align: center;
 }
 
-#download:hover {
+#download:hover, #upload:hover {
   border: 2px solid white;
   box-shadow: 3px 3px white;
   background-color: black;
@@ -245,8 +254,42 @@ select {
   fill: white;
 }
 
+#download:active, #upload:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px;
+     -moz-box-shadow: inset 0px 0px 5px #5f5b5b;
+          box-shadow: inset 0px 0px 5px #5f5b5b;
+   outline: none;
+}
+
+#upload {
+  width: 253px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid black;
+  box-shadow: 3px 3px black;
+  background-color: white;
+  font-size: 18pt;
+  color: black;
+  text-align: center;
+}
+
 svg {
-  padding-left: 115px;
+  padding-left: 10px;
+}
+
+#uploadSizeMessage {
+  font-size: 10pt;
+}
+
+#hiddenUpload {
+  display: none;
 }
 
 /* Menus */
@@ -306,15 +349,16 @@ svg {
 #versionChoices {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.selections {
+.versions {
   padding: 3px;
   padding-bottom: 8px;
   padding-top: 8px;
   width: 200px;
   margin-bottom: 6px;
+  margin-right: 7px;
   border: 2px solid black;
   box-shadow: 3px 3px black;
   background-color: white;
@@ -324,14 +368,14 @@ svg {
   line-height: 15px;
 }
 
-.selections:hover {
+.versions:hover {
   border: 2px solid white;
   box-shadow: 3px 3px white;
   background-color: black;
   color: white;
 }
 
-.selections:active {
+.versions:active {
   background: #e5e5e5;
   -webkit-box-shadow: inset 0px 0px 5px;
      -moz-box-shadow: inset 0px 0px 5px #5f5b5b;

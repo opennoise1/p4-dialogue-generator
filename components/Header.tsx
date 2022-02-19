@@ -6,7 +6,6 @@ const Header = () => {
         <img alt='Persona 4 logo' id='p4logo' src='../images/personalogo.png' />
         <div className='generatorTitles'>
           <div id='titleKRSM' className='KRSMDivs'>DIALOGUE GENERATOR</div>
-          <div id='titleOptima' className='optimaDivs'>DIALOGUE GENERATOR</div>
           <div id='titleSlump' className='slumpDivs' lang='ja'>対話ジェネレータ</div>
         </div>
         <div id='mobileMessage' className='hidden'>

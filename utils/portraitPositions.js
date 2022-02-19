@@ -1,23 +1,18 @@
-const goldenPositions = {
-  Chie: [795, 174],
-};
-
-const vanillaPositions = {
-  Chie: [890, 153],
-}
-
-const findSpecialPosition = (char, emote, costume) => {
+const findPosition = (version, char, emote, costume) => {
   switch (char) {
-    case 'Akechi': {
-      if (emote.includes('Royal')) return [-30, 10]
-      if (costume.includes('Defeated')) return [30, 10];
-      if (emote === 'Furious' || emote === 'Smirking' || 
-        emote === 'Staring' || emote === 'Upset') return [85, 0];
-      if (costume.includes('Cognitive')) return [85, 0];
-      return [-30, 0];
+    case 'Chie': {
+      return version === 'golden' ? [795, 174] : [795, 135];
     }
-    default: return [0, 0];
+    case 'Kanji': {
+      if (costume === 'New Years') { return version === 'golden' ? [795, 145] : [860, 125] };
+
+      return version === 'golden' ? [795, 135] : [870, 115];
+    }
+    case 'Naoto': {
+      return version === 'golden' ? [795, 174] : [795, 135];
+    }
+    default: return version === 'golden' ? [795, 135] : [870, 115];
   }
 }
 
-export { goldenPositions, vanillaPositions };
+export default findPosition;

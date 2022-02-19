@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import { goldenPositions, vanillaPositions } from '../utils/portraitPositions';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import FontFaceObserver from 'fontfaceobserver';
+import findPosition from '../utils/portraitPositions';
 
-const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version }) => {
+const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, emote, costume }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
   const boxBackCanvas: React.MutableRefObject<any> = useRef(null);
   const boxFrontCanvas: React.MutableRefObject<any> = useRef(null);
@@ -12,7 +13,8 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version })
   let pCtx: CanvasRenderingContext2D;
   let bCtx: CanvasRenderingContext2D;
   let tCtx: CanvasRenderingContext2D;
-
+  const loadedFont = new FontFaceObserver('SkipStd-B');
+  
   const boxPositions = {
     goldenBack: [61, 546, 1200, 256],
     goldenFront: [42.5, 621, 1200, 171],
@@ -25,10 +27,14 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version })
     tCtx = textCanvas.current.getContext('2d');
     tCtx.clearRect(0, 0, 1275, 800);
     tCtx.font = `28pt SkipStd-B`;
-    
-    // Draw or redraw name
-    tCtx.fillStyle = '#4B2A14';
-    version === 'golden' ? tCtx.fillText(name, 80, 615) : tCtx.fillText(name, 85, 590);
+
+    // Check font is loaded before drawing name
+    // This ensures name is styled when website is first loaded
+    loadedFont.load().then(() => {
+      // Draw or redraw name
+      tCtx.fillStyle = '#4B2A14';
+      version === 'golden' ? tCtx.fillText(name, 80, 615) : tCtx.fillText(name, 85, 590);
+    });
 
     // Draw or redraw text
     tCtx.fillStyle = '#FFFFFF';
@@ -50,26 +56,29 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version })
 
   useEffect(() => {
     // Redraw the portrait when choosing a new box since the portrait's position will change
-    drawPortrait(character.current, 400, 449);
+    drawPortrait(character.current, 300);
     return;
   }, [version]);
 
-  const drawPortrait = (charImage: CanvasImageSource, w: number, h: number) => {
+  const drawPortrait = (charImage: CanvasImageSource, width: number) => {
     // Initialize portrait canvas and clear current portrait
     pCtx = portraitCanvas.current.getContext('2d');
     pCtx.clearRect(0, 0, 1275, 800);
-
+    
+    // Because all portraits are not the same size,
+    // ensure they are resized proportionally by calculating new dimensions
+    const imageHeight: number = charImage.height as number;
+    const imageWidth: number = charImage.width as number;
+    const targetArea: number = imageHeight * width;
+    const newWidth: number = Math.sqrt(((imageWidth / imageHeight) * targetArea));
+    const newHeight: number = targetArea / newWidth;
+    
     // Look up draw position for requested portrait and draw new portrait
     let x: number;
     let y: number;
-    if (version === 'golden') {
-      x = goldenPositions[char][0];
-      y = goldenPositions[char][1];
-    } else {
-      x = vanillaPositions[char][0];
-      y = vanillaPositions[char][1];
-    }
-    pCtx.drawImage(charImage, x, y, w, h);
+    const position = findPosition(version, char, emote, costume);
+    x = position[0]; y = position[1];
+    pCtx.drawImage(charImage, x, y, newWidth, newHeight);
     return;
   };
 
@@ -152,7 +161,7 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version })
         className='hidden'
         src={portrait}
         crossOrigin="anonymous"
-        onLoad={() => drawPortrait(character.current, 400, 449)}
+        onLoad={() => drawPortrait(character.current, 300)}
       />
       <img
         alt='Dialogue box front'

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, SyntheticEvent } from 'react';
 import Menus from './Menus';
 
 const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, name, setName,
@@ -29,25 +29,38 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
   const downloadImage = (): void => {
     const downloadCanvas: HTMLCanvasElement = document.createElement('canvas');
     downloadCanvas.width = 1275;
-    downloadCanvas.height = 500;
+    downloadCanvas.height = 800;
 
+    const boxBackCanvas: HTMLCanvasElement = 
+      document.getElementById('boxBackCanvas') as HTMLCanvasElement;
     const portraitCanvas: HTMLCanvasElement = 
       document.getElementById('portraitCanvas') as HTMLCanvasElement;
-    const boxCanvas: HTMLCanvasElement = 
-      document.getElementById('boxCanvas') as HTMLCanvasElement;
+    const boxFrontCanvas: HTMLCanvasElement = 
+      document.getElementById('boxFrontCanvas') as HTMLCanvasElement;
     const textCanvas: HTMLCanvasElement = 
       document.getElementById('textCanvas') as HTMLCanvasElement;
     
+    // Create a new canvas and draw the contents of each of the other canvases on top of it
     const dCtx: CanvasRenderingContext2D = downloadCanvas.getContext('2d') as CanvasRenderingContext2D;
-    dCtx.drawImage(portraitCanvas, 0, 0, 1275, 500);
-    dCtx.drawImage(boxCanvas, 0, 0, 1275, 500);
-    dCtx.drawImage(textCanvas, 0, 0, 1275, 500);
+    dCtx.drawImage(boxBackCanvas, 0, 0, 1275, 800);
+    dCtx.drawImage(portraitCanvas, 0, 0, 1275, 800);
+    dCtx.drawImage(boxFrontCanvas, 0, 0, 1275, 800);
+    dCtx.drawImage(textCanvas, 0, 0, 1275, 800);
     const link: HTMLAnchorElement = document.createElement('a');
     link.download = `${char}-${text}.png`;
     link.href = downloadCanvas.toDataURL('image/png');
     link.click();
     return;
   };
+
+  const customPortrait = (e: SyntheticEvent<HTMLInputElement>): void => {
+    // If an uploaded file exists...
+    if((e.target as HTMLInputElement).files[0]) {
+      // ...create a URL from the file and set it as our portrait image's source
+      setPortrait(URL.createObjectURL((e.target as HTMLInputElement).files[0]));
+    }
+    return;
+  }
 
   return (
     <div id='textAndTools'>
@@ -57,7 +70,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <textarea
             id='nameField'
             rows={1}
-            cols={50}
+            cols={52}
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -68,31 +81,17 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
             id='textField' 
             placeholder='Attention Junes shoppers: Character portraits contain spoilers!'
             rows={3}
-            cols={50}
+            cols={52}
             defaultValue={text}
             onChange={(e) => setText(e.target.value)} 
           />
         </div>
-        <div 
-          id='download'
-          className='cursor'
-          onClick={downloadImage}
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 24l-8-9h6v-15h4v15h6z"/>
-          </svg>
-          <div>Download</div>    
-        </div>
-        <div
-          id='upload'
-          className='cursor'
-        >
-          <input type='file' accept='image/*'></input>
+        <div id='downloadAndUpload'>
+          <div id='download' className='cursor' onClick={downloadImage}>Download</div>
+          <label id='upload' className='cursor'>Upload Portrait
+            <input id='hiddenUpload' type='file' accept='image/*' onChange={(e) => customPortrait(e)}></input>
+            <div id='uploadSizeMessage'>(400px x 400px recommended)</div>
+          </label>
         </div>
       </div>
       <div id='menusAndBoxes'>
@@ -102,14 +101,14 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <div id='versionChoices'>
             <div 
               id='vanillaVersion' 
-              className='selections skipDivs cursor' 
+              className='versions skipDivs cursor' 
               onClick={() => { setVersion('vanilla'); }}
             >
               Persona 4
             </div>
             <div 
               id='goldenVersion' 
-              className='selections skipDivs cursor' 
+              className='versions skipDivs cursor' 
               onClick={() => { setVersion('golden'); }}
             >
               Persona 4 Golden
