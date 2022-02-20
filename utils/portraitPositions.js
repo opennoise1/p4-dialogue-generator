@@ -11,6 +11,9 @@ const findPosition = (version, char, emote, costume) => {
     case 'Naoto': {
       return version === 'golden' ? [795, 174] : [795, 135];
     }
+    case 'Rise': {
+      return version === 'golden' ? [795, 174] : [795, 135];
+    }
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
 }
