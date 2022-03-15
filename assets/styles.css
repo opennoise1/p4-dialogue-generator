@@ -1,16 +1,13 @@
 @font-face {
   font-family: 'SkipStd-B';
-  src: url('fonts/SkipStd-B-AlphaNum.otf') format('opentype');
-  /* src: url('fonts/SkipStd-B-AlphaNum.eot');
-  src: url('fonts/SkipStd-B-AlphaNum.eot?#iefix') format('embedded-opentype'),
-       url('fonts/SkipStd-B-AlphaNum.svg#SkipStd-B-AlphaNum') format('svg'),
-       url('fonts/SkipStd-B-AlphaNum.ttf') format('truetype'),
-       url('fonts/SkipStd-B-AlphaNum.woff') format('woff'),
-       url('fonts/SkipStd-B-AlphaNum.woff2') format('woff2'); */
+  src: url('fonts/SkipStd-B-Stretch.otf') format('opentype');
+  src: url('fonts/SkipStd-B-Stretch.svg#SkipStd-B-Stretch') format('svg'),
+       url('fonts/SkipStd-B-Stretch.ttf') format('truetype'),
+       url('fonts/SkipStd-B-Stretch.woff') format('woff'),
+       url('fonts/SkipStd-B-Stretch.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-  font-stretch: expanded;
 }
 
 body {
@@ -81,25 +78,16 @@ body {
   margin-bottom: 5px;
 
   font-size: 14pt;
-  color: white;
-  text-shadow: 2px 2px black;
+  color: black;
   text-align: right;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
 }
 
 #subhead a {
-  color: white;
-  text-shadow: 2px 2px black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  color: black;
 }
 
 #subhead a:visited {
-  color: white;
-  text-shadow: 2px 2px black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  color: black;
 }
 
 #subhead p {
