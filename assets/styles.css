@@ -112,9 +112,9 @@ body {
 
 #canvasDiv {
   position: relative;
-  /* background-image: url('../images/backgroundDot.png'); */
-  background-color: #807f7f;
-  background-size: 1275px 500px;
+  background-image: url('../images/p4-background.png');
+  background-repeat: no-repeat;
+  background-size: 1275px 800px;
   border: 2px solid black;
   line-height: 0; /* Eliminates small bit of padding at the bottom of canvas-containing div */
   box-shadow: 4px 4px black;

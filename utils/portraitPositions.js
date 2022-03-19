@@ -1,5 +1,11 @@
 const findPosition = (version, char, emote, costume) => {
   switch (char) {
+    case 'Adachi': {
+      return version === 'golden' ? [795, 138] : [870, 117];
+    }
+    case 'Ai': {
+      return version === 'golden' ? [793, 143] : [870, 122];
+    }
     case 'Chie': {
       return version === 'golden' ? [795, 174] : [795, 135];
     }

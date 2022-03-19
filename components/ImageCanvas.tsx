@@ -1,6 +1,7 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import FontFaceObserver from 'fontfaceobserver';
 import findPosition from '../utils/portraitPositions';
+import findWidth from '../utils/portraitWidths';
 
 const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, emote, costume }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
@@ -60,8 +61,10 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
   }, [text, name, version]);
 
   useEffect(() => {
+    let width = findWidth(char, emote, costume);
+    console.log(width);
     // Redraw the portrait when choosing a new box since the portrait's position will change
-    drawPortrait(character.current, 300);
+    drawPortrait(character.current, width);
     return;
   }, [version]);
 
