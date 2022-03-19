@@ -31,9 +31,14 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
     // Check font is loaded before drawing name
     // This ensures name is styled when website is first loaded
     loadedFont.load().then(() => {
-      // Draw or redraw name
-      tCtx.fillStyle = '#4B2A14';
-      version === 'golden' ? tCtx.fillText(name, 80, 615) : tCtx.fillText(name, 85, 590);
+      // Draw or redraw name, using the correct color and positioning based on game version selected
+      if (version === 'golden') {
+        tCtx.fillStyle = '#4B2A14'; 
+        tCtx.fillText(name, 80, 615);
+      } else {
+        tCtx.fillStyle = '#000000';
+        tCtx.fillText(name, 85, 590);
+      }
     });
 
     // Draw or redraw text

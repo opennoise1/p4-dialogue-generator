@@ -5,7 +5,7 @@ import CostumeMenu from './CostumeMenu';
 // import BoxMenu from './BoxMenu';
 
 const Menus = ({ char, setChar, emote, setEmote, costume, 
-  setCostume, setPortrait, version, setVersion, boxBack, setBack, boxFront, setFront }) => {
+  setCostume, setPortrait, version, setVersion, boxBack, setBack, boxFront, setFront, setName }) => {
   const [emoteMenus, setEmoteMenus] = useState<string[]>([]);
   const [costumeMenus, setCostumeMenus] = useState<string[]>([]);
 
@@ -26,6 +26,7 @@ const Menus = ({ char, setChar, emote, setEmote, costume,
     setBack,
     boxFront,
     setFront,
+    setName,
   };
 
   useEffect(() => {

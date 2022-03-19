@@ -71,7 +71,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
             id='nameField'
             rows={1}
             cols={52}
-            defaultValue={name}
+            // defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>

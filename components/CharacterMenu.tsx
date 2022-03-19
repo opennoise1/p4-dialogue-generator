@@ -1,10 +1,10 @@
 import { useEffect, SyntheticEvent } from 'react';
 
-const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
+const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName }) => {
 
   const switchChar = (e: SyntheticEvent<HTMLSelectElement>) => {
     setChar((e.target as HTMLSelectElement).value);
-    // Do we set the name here?
+    setName(char);
     return;
   };
 
@@ -37,9 +37,8 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
         <option value='Ayane'>Ayane Matsunaga</option>
         <option value='Chie'>Chie Satonaka</option>
         <option value='Chihiro'>Chihiro Fushimi</option>
-        <option value='Daidara'>Daidara</option>
         <option value='Daisuke'>Daisuke Nagase</option>
-        <option value='Edogawa'>Mr. Edogawa</option>
+        <option value='Mr. Edogawa'>Mr. Edogawa</option>
         <option value='Eri'>Eri Minami</option>
         <option value='Fox'>Fox</option>
         <option value='Hanako'>Hanako Ohtani</option>
@@ -51,16 +50,17 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus }) => {
         <option value='Kou'>Kou Ichijou</option>
         <option value='Margaret'>Margaret</option>
         <option value='Marie'>Marie</option>
-        <option value='Yamano'>Mayumi Yamano</option>
+        <option value='Mayumi'>Mayumi Yamano</option>
         <option value='Mitsuo'>Mitsuo Kubo</option>
         <option value='Nanako'>Nanako Dojima</option>
         <option value='Naoto'>Naoto Shirogane</option>
         <option value='Naoki'>Naoki Konishi</option>
         <option value='Kashiwagi'>Noriko Kashiwagi</option>
+        <option value='Old Lady Shiroku'>Old Lady Shiroku</option>
+        <option value='Old Man Daidara'>Old Man Daidara</option>
         <option value='Rise'>Rise Kujikawa</option>
         <option value='Dojima'>Ryotaro Dojima</option>
         <option value='Saki'>Saki Konishi</option>
-        <option value='Shiroku'>Shiroku</option>
         <option value='Shu'>Shu Nakajima</option>
         <option value='Tanaka'>Tanaka</option>
         <option value='Namatame'>Taro Namatame</option>

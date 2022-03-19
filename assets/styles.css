@@ -77,7 +77,7 @@ body {
 
   margin-bottom: 5px;
 
-  font-size: 14pt;
+  font-size: 12pt;
   color: black;
   text-align: right;
 }
@@ -113,6 +113,7 @@ body {
 #canvasDiv {
   position: relative;
   /* background-image: url('../images/backgroundDot.png'); */
+  background-color: #807f7f;
   background-size: 1275px 500px;
   border: 2px solid black;
   line-height: 0; /* Eliminates small bit of padding at the bottom of canvas-containing div */
@@ -121,7 +122,6 @@ body {
 
 #boxBackCanvas {
   z-index: 0;
-  background-color: #807f7f;
 }
 
 #portraitCanvas {
