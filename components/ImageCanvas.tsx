@@ -58,13 +58,11 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
       tCtx.fillText(rows[2], 100, 735);
     }
     return;
-  }, [text, name, version]);
+  }, [text, name, version, char]);
 
   useEffect(() => {
-    let width = findWidth(char, emote, costume);
-    console.log(width);
     // Redraw the portrait when choosing a new box since the portrait's position will change
-    drawPortrait(character.current, width);
+    drawPortrait(character.current, findWidth(char, emote, costume));
     return;
   }, [version]);
 
@@ -169,7 +167,7 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
         className='hidden'
         src={portrait}
         crossOrigin="anonymous"
-        onLoad={() => drawPortrait(character.current, 300)}
+        onLoad={() => drawPortrait(character.current, findWidth(char, emote, costume))}
       />
       <img
         alt='Dialogue box front'
