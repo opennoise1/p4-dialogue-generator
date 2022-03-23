@@ -36,6 +36,16 @@ const findWidth = (char, emote, costume) => {
     }
     case 'Hisano': return 320;
     case 'Igor': return 320;
+    case 'Kanji': {
+      switch (costume) {
+        case 'Culture Festival': return 310;
+        case 'Epilogue': return 311;
+        case 'Ski Trip': return 320;
+        case 'Spring Casual': return 310;
+        case 'Spring Uniform': return 345;
+        case 'Spring Uniform (Glasses)': return 345;
+      }
+    }
     default: return 300;
   }
 }

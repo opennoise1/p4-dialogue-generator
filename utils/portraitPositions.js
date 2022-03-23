@@ -55,14 +55,22 @@ const findPosition = (version, char, emote, costume) => {
     case 'Igor': return version === 'golden' ? [765, 225] : [850, 205];
     case 'Izanami': {
       if (costume === 'Robes') {
-        return version === 'golden' ? [785, 150] : [880, 130]; 
+        return version === 'golden' ? [785, 155] : [880, 133]; 
       }
+      return version === 'golden' ? [786, 153] : [881, 131];
     }
     case 'Kanji': {
-      if (costume === 'New Years') { 
-        return version === 'golden' ? [795, 145] : [860, 125] 
-      }
-      return version === 'golden' ? [795, 135] : [870, 115];
+      switch (costume) {
+        case 'Culture Festival': return version === 'golden' ? [796, 135] : [871, 115];
+        case 'Epilogue': return version === 'golden' ? [786, 149] : [861, 129];
+        case 'Shirtless': return version === 'golden' ? [795, 135] : [870, 115];
+        case 'Ski Trip': return version === 'golden' ? [782, 159] : [857, 139];
+        case 'Spring Casual': return version === 'golden' ? [796, 135] : [871, 115];
+        case 'Spring Uniform': return version === 'golden' ? [796, 145] : [871, 115];
+        case 'Spring Uniform (Glasses)': return version === 'golden' ? [796, 135] : [871, 115];
+        case 'Summer Uniform': return version === 'golden' ? [795, 135] : [870, 115];
+        case 'Summer Uniform (Glasses)': return version === 'golden' ? [795, 135] : [870, 115];
+      } 
     }
     case 'Naoto': {
       return version === 'golden' ? [795, 174] : [795, 135];
