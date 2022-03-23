@@ -52,6 +52,12 @@ const findPosition = (version, char, emote, costume) => {
       } 
       return version === 'golden' ? [800, 185] : [880, 165];
     }
+    case 'Igor': return version === 'golden' ? [765, 225] : [850, 205];
+    case 'Izanami': {
+      if (costume === 'Robes') {
+        return version === 'golden' ? [785, 150] : [880, 130]; 
+      }
+    }
     case 'Kanji': {
       if (costume === 'New Years') { 
         return version === 'golden' ? [795, 145] : [860, 125] 

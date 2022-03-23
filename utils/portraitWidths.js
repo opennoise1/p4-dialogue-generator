@@ -35,6 +35,7 @@ const findWidth = (char, emote, costume) => {
       return 330;
     }
     case 'Hisano': return 320;
+    case 'Igor': return 320;
     default: return 300;
   }
 }
