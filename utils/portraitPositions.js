@@ -29,10 +29,10 @@ const findPosition = (version, char, emote, costume) => {
         case 'Summer Uniform': return version === 'golden' ? [807, 172] : [827, 150];
         case 'Summer Uniform (Glasses)': return version === 'golden' ? [807, 172] : [827, 150];
         case 'Swimsuit': return version === 'golden' ? [807, 172] : [827, 150];
+        case 'Towel': return version === 'golden' ? [807, 172] : [827, 150];
         case 'Winter Casual': return version === 'golden' ? [787, 172] : [807, 150];
         case 'Winter Uniform': return version === 'golden' ? [795, 171] : [815, 151]; 
         case 'Yukata': return version === 'golden' ? [803, 172] : [823, 153];
-        default: return version === 'golden' ? [802, 173] : [822, 151];
       }
     }
     case 'Chihiro': return version === 'golden' ? [745, 171] : [800, 150];
@@ -60,20 +60,78 @@ const findPosition = (version, char, emote, costume) => {
       return version === 'golden' ? [786, 153] : [881, 131];
     }
     case 'Kanji': {
+      if (emote === 'Miscellaneous' && costume != "Gag Glasses") return version === 'golden' ? [790, 135] : [865, 116];
       switch (costume) {
-        case 'Culture Festival': return version === 'golden' ? [796, 135] : [871, 115];
-        case 'Epilogue': return version === 'golden' ? [786, 149] : [861, 129];
-        case 'Shirtless': return version === 'golden' ? [795, 135] : [870, 115];
-        case 'Ski Trip': return version === 'golden' ? [782, 159] : [857, 139];
-        case 'Spring Casual': return version === 'golden' ? [796, 135] : [871, 115];
-        case 'Spring Uniform': return version === 'golden' ? [796, 145] : [871, 115];
-        case 'Spring Uniform (Glasses)': return version === 'golden' ? [796, 135] : [871, 115];
-        case 'Summer Uniform': return version === 'golden' ? [795, 135] : [870, 115];
-        case 'Summer Uniform (Glasses)': return version === 'golden' ? [795, 135] : [870, 115];
+        case 'Culture Festival': return version === 'golden' ? [788, 131] : [864, 111];
+        case 'Epilogue': return version === 'golden' ? [781, 149] : [856, 129];
+        case 'Gag Glasses': return version === 'golden' ? [752, 144] : [827, 124];
+        case 'Shirtless': return version === 'golden' ? [790, 135] : [865, 116];
+        case 'Ski Trip': return version === 'golden' ? [777, 159] : [851, 139];
+        case 'Spring Casual': return version === 'golden' ? [791, 135] : [866, 115];
+        case 'Spring Uniform': return version === 'golden' ? [752, 144] : [827, 124];
+        case 'Spring Uniform (Glasses)': return version === 'golden' ? [752, 144] : [827, 124];
+        case 'Summer Casual': return version === 'golden' ? [790, 135] : [865, 115];
+        case 'Summer Uniform': return version === 'golden' ? [790, 135] : [865, 115];
+        case 'Summer Uniform (Glasses)': return version === 'golden' ? [790, 135] : [865, 115];
+        case 'Tracksuit': return version === 'golden' ? [777, 135] : [842, 115];
+        case 'Tracksuit (Nosebleed)': return version === 'golden' ? [777, 135] : [842, 115];
+        case 'Winter Casual': return version === 'golden' ? [784, 135] : [849, 115];
+        case 'Winter Uniform': return version === 'golden' ? [752, 144] : [827, 124];
+        case 'Yukata': return version === 'golden' ? [794, 136] : [869, 117];
       } 
     }
+    case 'Kashiwagi': return version === 'golden' ? [745, 140] : [830, 119];
+    case 'Kou': {
+      switch (costume) {
+        case 'Spring Uniform': return version === 'golden' ? [804, 146] : [884, 125];
+        case 'Summer Casual': return version === 'golden' ? [799, 146] : [879, 125];
+        case 'Summer Uniform': return version === 'golden' ? [794, 146] : [874, 124];
+        default: return version === 'golden' ? [800, 146] : [880, 125];
+      }
+    }
+    case 'Margaret': return version === 'golden' ? [685, 160] : [760, 140];
+    case 'Marie': {
+      switch (costume) {
+        case 'Casual': return version === 'golden' ? [826, 148] : [921, 127];
+        case 'Epilogue': return version === 'golden' ? [840, 148] : [935, 127];
+        case 'Kusumi no Okami': return version === 'golden' ? [777, 136] : [872, 115];
+        default: return version === 'golden' ? [775, 130] : [870, 109];
+      }
+    }
+    case 'Mayumi': return version === 'golden' ? [835, 156] : [880, 135];
+    case 'Mitsuo': {
+      if (costume === 'Spring Uniform') return version === 'golden' ? [795, 138] : [900, 117];
+      return version === 'golden' ? [800, 136] : [905, 115];
+    }
+    case 'Nanako': {
+      if (costume === 'Epilogue') return version === 'golden' ? [818, 160] : [868, 136];
+      if (costume === 'Winter Attire') return version === 'golden' ? [813, 153] : [863, 129];
+      return version === 'golden' ? [820, 160] : [870, 136];
+    }
     case 'Naoto': {
-      return version === 'golden' ? [795, 174] : [795, 135];
+      if (emote === 'Miscellaneous') return version === 'golden' ? [784, 149] : [803, 128];
+      switch (costume) {
+        case 'Epilogue': return version === 'golden' ? [808, 168] : [827, 146];
+        case 'Girls\' Uniform': return version === 'golden' ? [781, 167] : [800, 145];
+        case 'Spring Casual': return version === 'golden' ? [782, 149] : [802, 128];
+        case 'Spring Casual (No Hat)': return version === 'golden' ? [785, 168] : [803, 148];
+        case 'Spring Uniform': return version === 'golden' ? [782, 149] : [802, 128];
+        case 'Spring Uniform (Glasses)': return version === 'golden' ? [782, 149] : [802, 128];
+        case 'Summer Casual': return version === 'golden' ? [786, 149] : [805, 128];
+        case 'Summer Uniform': return version === 'golden' ? [786, 149] : [805, 128];
+        case 'Summer Uniform (Glasses)': return version === 'golden' ? [786, 149] : [805, 128];
+        case 'Towel': return version === 'golden' ? [854, 167] : [873, 145];
+        case 'Winter Casual': return version === 'golden' ? [777, 150] : [796, 129];
+        case 'Winter Uniform': return version === 'golden' ? [775, 149] : [794, 128];
+        default: return version === 'golden' ? [775, 154] : [795, 132];
+      }
+    }
+    case 'Naoki': {
+      if (costume === 'Spring Uniform') return version === 'golden' ? [825, 127] : [910, 105];
+      return version === 'golden' ? [825, 127] : [910, 105];
+    }
+    case 'Old Lady Shiroku': {
+      return version === 'golden' ? [775, 136] : [840, 115];
     }
     case 'Rise': {
       return version === 'golden' ? [795, 174] : [795, 135];
