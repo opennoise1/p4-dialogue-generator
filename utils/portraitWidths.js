@@ -99,7 +99,7 @@ const findWidth = (char, emote, costume) => {
       return 238;
     }
     case 'Old Lady Shiroku': {
-      if (costume === 'Shop Attire') return 315;
+      if (costume === 'Shop Attire') return 300;
       return 270;
     }
     default: return 300;

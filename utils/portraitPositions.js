@@ -131,6 +131,7 @@ const findPosition = (version, char, emote, costume) => {
       return version === 'golden' ? [825, 127] : [910, 105];
     }
     case 'Old Lady Shiroku': {
+      if (costume === 'Shop Attire') return version === 'golden' ? [775, 191] : [840, 170];
       return version === 'golden' ? [775, 136] : [840, 115];
     }
     case 'Rise': {
