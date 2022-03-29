@@ -80,7 +80,7 @@ const findPosition = (version, char, emote, costume) => {
         case 'Yukata': return version === 'golden' ? [794, 136] : [869, 117];
       } 
     }
-    case 'Kashiwagi': return version === 'golden' ? [745, 140] : [830, 119];
+    case 'Ms. Kashiwagi': return version === 'golden' ? [745, 140] : [830, 119];
     case 'Kou': {
       switch (costume) {
         case 'Spring Uniform': return version === 'golden' ? [804, 146] : [884, 125];
@@ -103,6 +103,7 @@ const findPosition = (version, char, emote, costume) => {
       if (costume === 'Spring Uniform') return version === 'golden' ? [795, 138] : [900, 117];
       return version === 'golden' ? [800, 136] : [905, 115];
     }
+    case 'Mr. Morooka': return version === 'golden' ? [900, 190] : [925, 167];
     case 'Nanako': {
       if (costume === 'Epilogue') return version === 'golden' ? [818, 160] : [868, 136];
       if (costume === 'Winter Attire') return version === 'golden' ? [813, 153] : [863, 129];
@@ -131,12 +132,16 @@ const findPosition = (version, char, emote, costume) => {
       return version === 'golden' ? [825, 127] : [910, 105];
     }
     case 'Old Lady Shiroku': {
-      if (costume === 'Shop Attire') return version === 'golden' ? [775, 191] : [840, 170];
+      if (costume === 'Shop Attire') return version === 'golden' ? [785, 221] : [850, 199];
       return version === 'golden' ? [775, 136] : [840, 115];
     }
+    case 'Old Man Daidara': return version === 'golden' ? [765, 165] : [870, 144]; 
     case 'Rise': {
       return version === 'golden' ? [795, 174] : [795, 135];
     }
+    case 'Sayoko': return version === 'golden' ? [795, 125] : [870, 104];
+    case 'Shu': return version === 'golden' ? [795, 125] : [870, 105];
+    case 'Tanaka': return version === 'golden' ? [795, 156] : [880, 135];
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
 }

@@ -4,9 +4,11 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName 
 
   const switchChar = (e: SyntheticEvent<HTMLSelectElement>) => {
     setChar((e.target as HTMLSelectElement).value);
-    setName(char);
+    setName((e.target as HTMLSelectElement).value);
     return;
   };
+
+  // console.log('Name in Character Menu: ', name);
 
   useEffect(() => {
     fetch('/emotions', {
@@ -46,7 +48,7 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName 
         <option value='Igor'>Igor</option>
         <option value='Izanami'>Izanami</option>
         <option value='Kanji'>Kanji Tatsumi</option>
-        <option value='Morooka'>Kinshiro Morooka</option>
+        <option value='Mr. Morooka'>Kinshiro Morooka</option>
         <option value='Kou'>Kou Ichijou</option>
         <option value='Margaret'>Margaret</option>
         <option value='Marie'>Marie</option>
@@ -55,7 +57,7 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName 
         <option value='Nanako'>Nanako Dojima</option>
         <option value='Naoto'>Naoto Shirogane</option>
         <option value='Naoki'>Naoki Konishi</option>
-        <option value='Kashiwagi'>Noriko Kashiwagi</option>
+        <option value='Ms. Kashiwagi'>Noriko Kashiwagi</option>
         <option value='Old Lady Shiroku'>Old Lady Shiroku</option>
         <option value='Old Man Daidara'>Old Man Daidara</option>
         <option value='Rise'>Rise Kujikawa</option>

@@ -55,7 +55,7 @@ const findWidth = (char, emote, costume) => {
         default: return 300;
       }
     }
-    case 'Kashiwagi': return 280;
+    case 'Ms. Kashiwagi': return 280;
     case 'Kou': {
       switch (costume) {
         case 'Basketball Practice': return 264;
@@ -76,6 +76,7 @@ const findWidth = (char, emote, costume) => {
       if (costume === 'Spring Uniform') return 290;
       return 280;
     }
+    case 'Mr. Morooka': return 335;
     case 'Nanako': {
       if (costume === 'Winter Attire') return 230;
       return 220;
@@ -102,6 +103,10 @@ const findWidth = (char, emote, costume) => {
       if (costume === 'Shop Attire') return 300;
       return 270;
     }
+    case 'Old Man Daidara': return 330;
+    case 'Sayoko': return 250;
+    case 'Shu': return 280;
+    case 'Tanaka': return 305;
     default: return 300;
   }
 }

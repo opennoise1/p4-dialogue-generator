@@ -18,6 +18,8 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
     setBack,
     boxFront,
     setFront,
+    name,
+    setName,
   }
 
   useEffect(() => {

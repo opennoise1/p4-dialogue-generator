@@ -27,7 +27,7 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
     // Initialize text canvas and clear current text
     tCtx = textCanvas.current.getContext('2d');
     tCtx.clearRect(0, 0, 1275, 800);
-    tCtx.font = `28pt SkipStd-B`;
+    tCtx.font = `26pt SkipStd-B`;
 
     // Check font is loaded before drawing name
     // This ensures name is styled when website is first loaded
@@ -36,6 +36,7 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
       if (version === 'golden') {
         tCtx.fillStyle = '#4B2A14'; 
         tCtx.fillText(name, 80, 615);
+        // console.log('Name in Image Canvas: ', name);
       } else {
         tCtx.fillStyle = '#000000';
         tCtx.fillText(name, 85, 590);
