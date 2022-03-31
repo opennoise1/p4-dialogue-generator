@@ -37,11 +37,10 @@ const findPosition = (version, char, emote, costume) => {
     }
     case 'Chihiro': return version === 'golden' ? [745, 171] : [800, 150];
     case 'Daisuke': {
-      if (costume === 'Soccer Practice') {
-        return version === 'golden' ? [780, 167] : [849, 147];
-      }
+      if (costume === 'Soccer Practice') return version === 'golden' ? [780, 167] : [849, 147];
       return version === 'golden' ? [775, 167] : [844, 147];
     }
+    case 'Dojima': return version === 'golden' ? [840, 136] : [925, 115];
     case 'Mr. Edogawa': return version === 'golden' ? [735, 182] : [850, 161];
     case 'Eri': return version === 'golden' ? [785, 150] : [850, 130];
     case 'Fox': return version === 'golden' ? [770, 163] : [865, 142];
@@ -104,6 +103,10 @@ const findPosition = (version, char, emote, costume) => {
       return version === 'golden' ? [800, 136] : [905, 115];
     }
     case 'Mr. Morooka': return version === 'golden' ? [900, 190] : [925, 167];
+    case 'Namatame': {
+      if (costume === 'Delivery Attire' || emote === 'Miscellaneous') return version === 'golden' ? [776, 138] : [886, 118];
+      return version === 'golden' ? [795, 145] : [905, 125];
+    }
     case 'Nanako': {
       if (costume === 'Epilogue') return version === 'golden' ? [818, 160] : [868, 136];
       if (costume === 'Winter Attire') return version === 'golden' ? [813, 153] : [863, 129];
@@ -137,11 +140,17 @@ const findPosition = (version, char, emote, costume) => {
     }
     case 'Old Man Daidara': return version === 'golden' ? [765, 165] : [870, 144]; 
     case 'Rise': {
-      return version === 'golden' ? [795, 174] : [795, 135];
+      if (costume === 'Epilogue') return version === 'golden' ? [768, 148] : [788, 127];
+      if (costume === 'New Years') return version === 'golden' ? [826, 103] : [846, 82];
+      return version === 'golden' ? [795, 129] : [815, 108];
     }
+    case 'Saki': return version === 'golden' ? [795, 145] : [870, 124];
     case 'Sayoko': return version === 'golden' ? [795, 125] : [870, 104];
     case 'Shu': return version === 'golden' ? [795, 125] : [870, 105];
     case 'Tanaka': return version === 'golden' ? [795, 156] : [880, 135];
+    case 'Teddie': {
+      if (costume === 'Bear') return version === 'golden' ? [785, 165] : [865, 144];
+    }
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
 }

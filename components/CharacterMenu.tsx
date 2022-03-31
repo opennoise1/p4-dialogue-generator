@@ -1,10 +1,11 @@
 import { useEffect, SyntheticEvent } from 'react';
 
-const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName }) => {
+const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName, name }) => {
 
   const switchChar = (e: SyntheticEvent<HTMLSelectElement>) => {
     setChar((e.target as HTMLSelectElement).value);
     setName((e.target as HTMLSelectElement).value);
+    (document.getElementById('nameField') as HTMLTextAreaElement).value = (e.target as HTMLSelectElement).value;
     return;
   };
 
