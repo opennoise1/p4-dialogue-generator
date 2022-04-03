@@ -129,6 +129,11 @@ const findWidth = (char, emote, costume) => {
     case 'Teddie': {
       switch (costume) {
         case 'Bear': return 320;
+        case 'Culture Festival': return 280;
+        case 'Epilogue': return 265;
+        case 'Human Outfit': return 268;
+        case 'Shadow Teddie': return 320;
+        case 'Shirtless': return 260;
       }
     }
     default: return 300;

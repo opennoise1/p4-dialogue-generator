@@ -149,7 +149,14 @@ const findPosition = (version, char, emote, costume) => {
     case 'Shu': return version === 'golden' ? [795, 125] : [870, 105];
     case 'Tanaka': return version === 'golden' ? [795, 156] : [880, 135];
     case 'Teddie': {
-      if (costume === 'Bear') return version === 'golden' ? [785, 165] : [865, 144];
+      switch (costume) {
+        case 'Bear': return version === 'golden' ? [785, 165] : [865, 144];
+        case 'Culture Festival': return version === 'golden' ? [790, 142] : [865, 121];
+        case 'Epilogue': return version === 'golden' ? [807, 151] : [882, 130];
+        case 'Human Outfit': return version === 'golden' ? [804, 151] : [879, 130];
+        case 'Shadow Teddie': return version === 'golden' ? [785, 165] : [865, 144];
+        case 'Shirtless': return version === 'golden' ? [815, 151] : [890, 130];
+      }
     }
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
