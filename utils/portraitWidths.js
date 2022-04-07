@@ -127,13 +127,29 @@ const findWidth = (char, emote, costume) => {
     case 'Shu': return 280;
     case 'Tanaka': return 305;
     case 'Teddie': {
+      if (costume.includes('Damaged')) return 350;
       switch (costume) {
         case 'Bear': return 320;
         case 'Culture Festival': return 280;
         case 'Epilogue': return 265;
         case 'Human Outfit': return 268;
+        case 'Human Reveal': return 394;
         case 'Shadow Teddie': return 320;
         case 'Shirtless': return 260;
+        case 'Winter Casual': return 263;
+        case 'Work Attire': return 268;
+        case 'Yukata': return 276;
+      }
+    }
+    case 'Yosuke': {
+      if (emote === 'Miscellaneous') return 296;
+      switch (costume) {
+        case 'Culture Festival': return 352;
+        case 'Spring Uniform': return 296;
+        case 'Spring Uniform (Glasses)': return 296;
+        case 'Summer Casual': return 298;
+        case 'Work Attire (Summer)': return 298;
+        case 'Winter Uniform': return 296;
       }
     }
     default: return 300;

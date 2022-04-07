@@ -149,13 +149,31 @@ const findPosition = (version, char, emote, costume) => {
     case 'Shu': return version === 'golden' ? [795, 125] : [870, 105];
     case 'Tanaka': return version === 'golden' ? [795, 156] : [880, 135];
     case 'Teddie': {
+      if (costume.includes('Damaged')) return version === 'golden' ? [785, 245] : [775, 225];
       switch (costume) {
         case 'Bear': return version === 'golden' ? [785, 165] : [865, 144];
         case 'Culture Festival': return version === 'golden' ? [790, 142] : [865, 121];
         case 'Epilogue': return version === 'golden' ? [807, 151] : [882, 130];
         case 'Human Outfit': return version === 'golden' ? [804, 151] : [879, 130];
+        case 'Human Reveal': return version === 'golden' ? [716, 150] : [766, 129];
         case 'Shadow Teddie': return version === 'golden' ? [785, 165] : [865, 144];
         case 'Shirtless': return version === 'golden' ? [815, 151] : [890, 130];
+        case 'Winter Casual': return version === 'golden' ? [812, 150] : [887, 129];
+        case 'Work Attire': return version === 'golden' ? [804, 151] : [879, 130];
+        case 'Yukata': return version === 'golden' ? [801, 151] : [876, 130];
+      }
+    }
+    case 'Yosuke': {
+      if (emote === 'Miscellaneous') return version === 'golden' ? [771, 151] : [861, 130];
+      switch (costume) {
+        case 'Culture Festival': return version === 'golden' ? [762, 104] : [852, 84];
+        case 'Shirtless': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Spring Uniform': return version === 'golden' ? [771, 151] : [861, 130];
+        case 'Spring Uniform (Glasses)': return version === 'golden' ? [771, 151] : [861, 130];
+        case 'Summer Casual': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Winter Uniform': return version === 'golden' ? [771, 151] : [861, 130];
+        case 'Work Attire (Spring)': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Work Attire (Summer)': return version === 'golden' ? [775, 151] : [865, 130];
       }
     }
     default: return version === 'golden' ? [795, 135] : [870, 115];
