@@ -167,7 +167,10 @@ const findPosition = (version, char, emote, costume) => {
       if (emote === 'Miscellaneous') return version === 'golden' ? [771, 151] : [861, 130];
       switch (costume) {
         case 'Culture Festival': return version === 'golden' ? [762, 104] : [852, 84];
+        case 'Epilogue': return version === 'golden' ? [775, 148] : [865, 127];
         case 'Shirtless': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Ski Trip': return version === 'golden' ? [764, 132] : [854, 111];
+        case 'Spring Casual': return version === 'golden' ? [775, 141] : [865, 120];
         case 'Spring Uniform': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Spring Uniform (Glasses)': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Summer Casual': return version === 'golden' ? [775, 151] : [865, 130];

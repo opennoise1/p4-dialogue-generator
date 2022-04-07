@@ -145,6 +145,9 @@ const findWidth = (char, emote, costume) => {
       if (emote === 'Miscellaneous') return 296;
       switch (costume) {
         case 'Culture Festival': return 352;
+        case 'Epilogue': return 299;
+        case 'Ski Trip': return 356;
+        case 'Spring Casual': return 320;
         case 'Spring Uniform': return 296;
         case 'Spring Uniform (Glasses)': return 296;
         case 'Summer Casual': return 298;
