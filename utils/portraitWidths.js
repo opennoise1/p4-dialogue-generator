@@ -147,12 +147,25 @@ const findWidth = (char, emote, costume) => {
         case 'Culture Festival': return 352;
         case 'Epilogue': return 299;
         case 'Ski Trip': return 356;
-        case 'Spring Casual': return 320;
+        case 'Spring Casual': return 306;
         case 'Spring Uniform': return 296;
         case 'Spring Uniform (Glasses)': return 296;
         case 'Summer Casual': return 298;
+        case 'Summer Uniform': return 304;
+        case 'Summer Uniform (Glasses)': return 304;
+        case 'Tracksuit': return 297;
+        case 'Winter Casual': return 304;
         case 'Work Attire (Summer)': return 298;
         case 'Winter Uniform': return 296;
+        case 'Yukata': return 315;
+      }
+    }
+    case 'Yukiko': {
+      switch (costume) {
+        case 'Epilogue': return 242;
+        case 'Kimono': return 301;
+        case 'New Years': return 272;
+        default: return 290;
       }
     }
     default: return 300;

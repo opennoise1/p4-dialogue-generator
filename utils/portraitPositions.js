@@ -170,13 +170,25 @@ const findPosition = (version, char, emote, costume) => {
         case 'Epilogue': return version === 'golden' ? [775, 148] : [865, 127];
         case 'Shirtless': return version === 'golden' ? [775, 151] : [865, 130];
         case 'Ski Trip': return version === 'golden' ? [764, 132] : [854, 111];
-        case 'Spring Casual': return version === 'golden' ? [775, 141] : [865, 120];
+        case 'Spring Casual': return version === 'golden' ? [773, 151] : [863, 130];
         case 'Spring Uniform': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Spring Uniform (Glasses)': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Summer Casual': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Summer Uniform': return version === 'golden' ? [772, 151] : [862, 130];
+        case 'Summer Uniform (Glasses)': return version === 'golden' ? [772, 151] : [862, 130];
+        case 'Tracksuit': return version === 'golden' ? [771, 151] : [861, 130];
+        case 'Winter Casual': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Winter Uniform': return version === 'golden' ? [771, 151] : [861, 130];
         case 'Work Attire (Spring)': return version === 'golden' ? [775, 151] : [865, 130];
         case 'Work Attire (Summer)': return version === 'golden' ? [775, 151] : [865, 130];
+        case 'Yukata': return version === 'golden' ? [775, 151] : [865, 130];
+      }
+    }
+    case 'Yukiko': {
+      switch (costume) {
+        case 'Epilogue': return version === 'golden' ? [841, 147] : [921, 126];
+        case 'New Years': return version === 'golden' ? [841, 147] : [921, 126];
+        default: return version === 'golden' ? [785, 145] : [865, 124];
       }
     }
     default: return version === 'golden' ? [795, 135] : [870, 115];
