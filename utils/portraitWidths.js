@@ -74,10 +74,11 @@ const findWidth = (char, emote, costume) => {
       if (costume === 'Casual') return 261;
       if (costume === 'Epilogue') return 261;
       if (costume === 'Kusumi no Okami') return 325;
+      return 299;
     }
     case 'Mayumi': return 230;
     case 'Mitsuo': {
-      if (costume === 'Spring Uniform') return 290;
+      if (costume === 'Spring Uniform') return 291;
       return 280;
     }
     case 'Mr. Morooka': return 335;
@@ -95,13 +96,14 @@ const findWidth = (char, emote, costume) => {
         case 'Epilogue': return 263;
         case 'Girls\' Uniform': return 285;
         case 'Spring Casual': return 295;
-        case 'Spring Casual (No Hat)': return 291;
+        case 'Spring Casual (No Hat)': return 292;
         case 'Summer Casual': return 290;
         case 'Summer Uniform': return 290;
         case 'Summer Uniform (Glasses)': return 290;
         case 'Towel': return 225;
         case 'Winter Casual': return 307;
         case 'Winter Uniform': return 310;
+        default: 300;
       }
     }
     case 'Naoki': {

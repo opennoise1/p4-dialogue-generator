@@ -67,33 +67,41 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
   return (
     <div id='textAndTools'>
       <div id='textAndDownload'>
-        <div id='enterName'>
-          <div id='nameHeader'>Name</div>
-          <textarea
-            id='nameField'
-            rows={1}
-            cols={52}
-            defaultValue={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+        <div id='allButLinks'>
+          <div id='enterName'>
+            <div id='nameHeader'>Name</div>
+            <textarea
+              id='nameField'
+              rows={1}
+              cols={52}
+              defaultValue={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div id='enterDialogue'>
+            <div id='dialogueHeader'>Dialogue</div>
+            <textarea 
+              id='textField' 
+              placeholder='Attention Junes shoppers: Character portraits contain spoilers!'
+              rows={3}
+              cols={52}
+              defaultValue={text}
+              onChange={(e) => setText(e.target.value)} 
+            />
+          </div>
+          <div id='downloadAndUpload'>
+            <div id='download' className='cursor' onClick={downloadImage}>Download</div>
+            <label id='upload' className='cursor'>Upload Portrait
+              <input id='hiddenUpload' type='file' accept='image/*' onChange={(e) => customPortrait(e)}></input>
+              <div id='uploadSizeMessage'>(400px x 400px recommended)</div>
+            </label>
+          </div>
         </div>
-        <div id='enterDialogue'>
-          <div id='dialogueHeader'>Dialogue</div>
-          <textarea 
-            id='textField' 
-            placeholder='Attention Junes shoppers: Character portraits contain spoilers!'
-            rows={3}
-            cols={52}
-            defaultValue={text}
-            onChange={(e) => setText(e.target.value)} 
-          />
-        </div>
-        <div id='downloadAndUpload'>
-          <div id='download' className='cursor' onClick={downloadImage}>Download</div>
-          <label id='upload' className='cursor'>Upload Portrait
-            <input id='hiddenUpload' type='file' accept='image/*' onChange={(e) => customPortrait(e)}></input>
-            <div id='uploadSizeMessage'>(400px x 400px recommended)</div>
-          </label>
+        <div id='genLinks'>
+          <div>Other generators:</div>
+          <a href='http://www.p5generator.com' target='_blank'>
+            <img id='p5logo' alt='Persona 5 logo' src='../images/persona5logo.png' width={100} height='auto'></img>
+          </a>
         </div>
       </div>
       <div id='menusAndBoxes'>

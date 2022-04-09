@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'SkipStd-B';
-  src: url('fonts/SkipStd-B-Stretch.otf') format('opentype');
-  src: url('fonts/SkipStd-B-Stretch.svg#SkipStd-B-Stretch') format('svg'),
-       url('fonts/SkipStd-B-Stretch.ttf') format('truetype'),
-       url('fonts/SkipStd-B-Stretch.woff') format('woff'),
-       url('fonts/SkipStd-B-Stretch.woff2') format('woff2');
+  src: url('fonts/SkipStd-B-Shorten.otf') format('opentype');
+  src: url('fonts/SkipStd-B-Shorten.svg#SkipStd-B-Shorten') format('svg'),
+       url('fonts/SkipStd-B-Shorten.ttf') format('truetype'),
+       url('fonts/SkipStd-B-Shorten.woff') format('woff'),
+       url('fonts/SkipStd-B-Shorten.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -33,7 +33,8 @@ body {
 
 #p4logo {
   height: 151px;
-  width: 200px
+  width: 200px;
+  margin-right: 15px;
 }
 
 #title {
@@ -178,6 +179,11 @@ select {
   margin-right: 20px;
 }
 
+#allButLinks {
+  display: flex;
+  flex-direction: column;
+}
+
 #enterName {
   display: flex;
   flex-direction: column;
@@ -214,6 +220,8 @@ select {
 #downloadAndUpload {
   display: flex;
   justify-content: space-between;
+  border-bottom: solid black 2px;
+  padding-bottom: 20px;
 }
 
 #download {
@@ -278,6 +286,11 @@ svg {
 
 #hiddenUpload {
   display: none;
+}
+
+#genLinks {
+  margin-top: 5px;
+  font-size: 15pt;
 }
 
 /* Menus */

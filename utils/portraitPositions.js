@@ -99,7 +99,7 @@ const findPosition = (version, char, emote, costume) => {
     }
     case 'Mayumi': return version === 'golden' ? [835, 156] : [880, 135];
     case 'Mitsuo': {
-      if (costume === 'Spring Uniform') return version === 'golden' ? [795, 138] : [900, 117];
+      if (costume === 'Spring Uniform') return version === 'golden' ? [795, 136] : [900, 115];
       return version === 'golden' ? [800, 136] : [905, 115];
     }
     case 'Mr. Morooka': return version === 'golden' ? [900, 190] : [925, 167];
@@ -197,6 +197,7 @@ const findPosition = (version, char, emote, costume) => {
       if (costume === 'Summer Uniform') return version === 'golden' ? [802, 137] : [867, 116];
       return version === 'golden' ? [805, 137] : [870, 116];
     }
+    case 'Yu': return version === 'golden' ? [795, 146] : [870, 125];
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
 }

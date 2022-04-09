@@ -3,7 +3,7 @@ const Header = () => {
   return (
     <header id='header'>
       <div id='title'>
-        <img alt='Persona 4 logo' id='p4logo' src='../images/personalogo.png' />
+        <img alt='Persona 4 logo' id='p4logo' src='../images/persona4logo.png' />
         <div className='generatorTitles'>
           <div id='titleKRSM' className='KRSMDivs'>DIALOGUE GENERATOR</div>
           <div id='titleSlump' className='slumpDivs' lang='ja'>対話ジェネレータ</div>
