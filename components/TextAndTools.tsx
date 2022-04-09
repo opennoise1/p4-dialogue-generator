@@ -93,7 +93,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
             <div id='download' className='cursor' onClick={downloadImage}>Download</div>
             <label id='upload' className='cursor'>Upload Portrait
               <input id='hiddenUpload' type='file' accept='image/*' onChange={(e) => customPortrait(e)}></input>
-              <div id='uploadSizeMessage'>(400px x 400px recommended)</div>
+              {/* <div id='uploadSizeMessage'>(400px x 400px recommended)</div> */}
             </label>
           </div>
         </div>
