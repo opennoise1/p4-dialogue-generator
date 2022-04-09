@@ -161,16 +161,25 @@ const findWidth = (char, emote, costume) => {
       }
     }
     case 'Yukiko': {
+      if (costume.includes('Shadow')) return 296;
       switch (costume) {
-        case 'Epilogue': return 242;
+        case 'Epilogue': return 244;
         case 'Kimono': return 301;
         case 'New Years': return 275;
         case 'Ski Trip': return 322;
         case 'Spring Casual': return 286;
-        case 'Summer Casual': return 288;
+        case 'Summer Casual': return 287;
         case 'Tracksuit': return 288;
+        case 'Winter Uniform': return 293;
+        case 'Yukata': return 301;
         default: return 289;
       }
+    }
+    case 'Yumi': {
+      if (emote === 'Miscellaneous') return 517;
+      if (costume === 'Summer Uniform') return 266;
+      if (costume === 'Casual') return 254;
+      return 255;
     }
     default: return 300;
   }

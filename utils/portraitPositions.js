@@ -186,10 +186,16 @@ const findPosition = (version, char, emote, costume) => {
     }
     case 'Yukiko': {
       switch (costume) {
-        case 'Epilogue': return version === 'golden' ? [841, 147] : [921, 126];
+        case 'Epilogue': return version === 'golden' ? [841, 145] : [921, 124];
         case 'New Years': return version === 'golden' ? [841, 103] : [921, 84];
         default: return version === 'golden' ? [785, 144] : [865, 123];
       }
+    }
+    case 'Yumi': {
+      if (emote === 'Miscellaneous') return version === 'golden' ? [639, 137] : [704, 116];
+      if (costume === 'Casual') return version === 'golden' ? [807, 138] : [872, 117];
+      if (costume === 'Summer Uniform') return version === 'golden' ? [802, 137] : [867, 116];
+      return version === 'golden' ? [805, 137] : [870, 116];
     }
     default: return version === 'golden' ? [795, 135] : [870, 115];
   }
