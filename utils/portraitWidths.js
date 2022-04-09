@@ -164,8 +164,12 @@ const findWidth = (char, emote, costume) => {
       switch (costume) {
         case 'Epilogue': return 242;
         case 'Kimono': return 301;
-        case 'New Years': return 272;
-        default: return 290;
+        case 'New Years': return 275;
+        case 'Ski Trip': return 322;
+        case 'Spring Casual': return 286;
+        case 'Summer Casual': return 288;
+        case 'Tracksuit': return 288;
+        default: return 289;
       }
     }
     default: return 300;

@@ -187,8 +187,8 @@ const findPosition = (version, char, emote, costume) => {
     case 'Yukiko': {
       switch (costume) {
         case 'Epilogue': return version === 'golden' ? [841, 147] : [921, 126];
-        case 'New Years': return version === 'golden' ? [841, 147] : [921, 126];
-        default: return version === 'golden' ? [785, 145] : [865, 124];
+        case 'New Years': return version === 'golden' ? [841, 103] : [921, 84];
+        default: return version === 'golden' ? [785, 144] : [865, 123];
       }
     }
     default: return version === 'golden' ? [795, 135] : [870, 115];
