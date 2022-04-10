@@ -17,6 +17,7 @@ const App = () => {
   // Initial portrait and box that will be rendered 
   const [portrait, setPortrait] = 
     useState<string>(`./images/portraits/${char}/${emote}/${char}-${emote}-${costume}.png`);
+  const [custom, setCustom] = useState<string>('');
   const [boxBack, setBack] = useState<string>(`./images/boxes/db-${version}-back.png`);
   const [boxFront, setFront] = useState<string>(`./images/boxes/db-${version}-front.png`);
   
@@ -35,6 +36,8 @@ const App = () => {
     setText,
     portrait,
     setPortrait,
+    custom,
+    setCustom,
     version,
     setVersion,
     boxBack,

@@ -1,7 +1,7 @@
 import { useEffect, SyntheticEvent } from 'react';
 import Menus from './Menus';
 
-const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, name, setName,
+const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, setCustom, name, setName,
   text, setText, version, setVersion, boxBack, setBack, boxFront, setFront }) => {
 
   const toolProps: any = {
@@ -59,7 +59,7 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
     // If an uploaded file exists...
     if((e.target as HTMLInputElement).files[0]) {
       // ...create a URL from the file and set it as our portrait image's source
-      setPortrait(URL.createObjectURL((e.target as HTMLInputElement).files[0]));
+      setCustom(URL.createObjectURL((e.target as HTMLInputElement).files[0]));
     }
     return;
   }
@@ -92,8 +92,15 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
           <div id='downloadAndUpload'>
             <div id='download' className='cursor' onClick={downloadImage}>Download</div>
             <label id='upload' className='cursor'>Upload Portrait
-              <input id='hiddenUpload' type='file' accept='image/*' onChange={(e) => customPortrait(e)}></input>
-              {/* <div id='uploadSizeMessage'>(400px x 400px recommended)</div> */}
+              {/* Every time user clicks on the button, the old picture's URL is cleared, 
+              which allows the onChange event to fire even if you upload the same image twice */}
+              <input 
+                id='hiddenUpload' 
+                type='file' accept='image/*' 
+                onClick={(e) => (e.target as HTMLInputElement).value = null} 
+                onChange={(e) => customPortrait(e)}>
+              </input>
+              <div id='uploadSizeMessage'>(400px x 450px recommended)</div>
             </label>
           </div>
         </div>

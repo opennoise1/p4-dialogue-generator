@@ -3,12 +3,13 @@ import FontFaceObserver from 'fontfaceobserver';
 import findPosition from '../utils/portraitPositions';
 import findWidth from '../utils/portraitWidths';
 
-const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, emote, costume }) => {
+const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, boxFront, version, emote, costume }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
   const boxBackCanvas: React.MutableRefObject<any> = useRef(null);
   const boxFrontCanvas: React.MutableRefObject<any> = useRef(null);
   const textCanvas: React.MutableRefObject<any> = useRef(null);
   const character: React.MutableRefObject<any> = useRef(null);
+  const customChar: React.MutableRefObject<any> = useRef(null);
   const dialogueBoxBack: React.MutableRefObject<any> = useRef(null);
   const dialogueBoxFront: React.MutableRefObject<any> = useRef(null);
   let pCtx: CanvasRenderingContext2D;
@@ -63,11 +64,17 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
 
   useEffect(() => {
     // Redraw the portrait when choosing a new box since the portrait's position will change
-    drawPortrait(character.current, findWidth(char, emote, costume));
+    if (custom) {
+      drawCustomPortrait(customChar.current);
+    } else {
+      drawPortrait(character.current, findWidth(char, emote, costume));
+    }
     return;
   }, [version]);
 
   const drawPortrait = (charImage: CanvasImageSource, width: number) => {
+    // Clear existing custom portrait URL, if it exists
+    if(custom) setCustom('');
     // Initialize portrait canvas and clear current portrait
     pCtx = portraitCanvas.current.getContext('2d');
     pCtx.clearRect(0, 0, 1275, 800);
@@ -88,6 +95,23 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
     pCtx.drawImage(charImage, x, y, newWidth, newHeight);
     return;
   };
+
+  const drawCustomPortrait = (customImage: CanvasImageSource) => {
+    // Initialize portrait canvas and clear current portrait
+    pCtx = portraitCanvas.current.getContext('2d');
+    pCtx.clearRect(0, 0, 1275, 800);
+
+    const width = customImage.width as number;
+    const height = customImage.height as number;
+    let x: number;
+    let y: number;
+    // [795, 135] : [870, 115]
+    x = version === 'golden' ? 795 : 870;
+    y = version === 'golden' ? 175 : 154;
+
+    pCtx.drawImage(customImage, x, y, width, height);
+    return;
+  }
 
   const drawBoxBack = (boxImage: CanvasImageSource) => {
     // Initialize box canvas, clear current box and draw new box
@@ -169,6 +193,15 @@ const ImageCanvas = ({ portrait, name, text, char, boxBack, boxFront, version, e
         src={portrait}
         crossOrigin="anonymous"
         onLoad={() => drawPortrait(character.current, findWidth(char, emote, costume))}
+      />
+      <img
+        alt='Custom Portrait'
+        ref={customChar}
+        id='custom'
+        className='hidden'
+        src={custom}
+        crossOrigin="anonymous"
+        onLoad={() => drawCustomPortrait(customChar.current)}
       />
       <img
         alt='Dialogue box front'
