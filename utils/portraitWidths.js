@@ -103,7 +103,7 @@ const findWidth = (char, emote, costume) => {
         case 'Towel': return 225;
         case 'Winter Casual': return 307;
         case 'Winter Uniform': return 310;
-        default: 300;
+        default: return 300;
       }
     }
     case 'Naoki': {
