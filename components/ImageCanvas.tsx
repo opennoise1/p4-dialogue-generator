@@ -64,10 +64,12 @@ const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, b
 
   useEffect(() => {
     // Redraw the portrait when choosing a new box since the portrait's position will change
-    if (custom) {
-      drawCustomPortrait(customChar.current);
-    } else {
-      drawPortrait(character.current, findWidth(char, emote, costume));
+    if (char !== 'None') {
+      if (custom) {
+        drawCustomPortrait(customChar.current);
+      } else {
+        drawPortrait(character.current, findWidth(char, emote, costume));
+      }
     }
     return;
   }, [version]);
