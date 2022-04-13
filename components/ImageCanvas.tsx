@@ -72,9 +72,18 @@ const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, b
     return;
   }, [version]);
 
+  useEffect(() => {
+    // Force portrait canvas to clear if "No Portrait" is selected
+    if (char === 'None') {
+      pCtx = portraitCanvas.current.getContext('2d');
+      pCtx.clearRect(0, 0, 1275, 800);
+    }
+    return;
+  }, [char]);
+
   const drawPortrait = (charImage: CanvasImageSource, width: number) => {
     // Clear existing custom portrait URL, if it exists
-    if(custom) setCustom('');
+    if (custom) setCustom('');
     // Initialize portrait canvas and clear current portrait
     pCtx = portraitCanvas.current.getContext('2d');
     pCtx.clearRect(0, 0, 1275, 800);

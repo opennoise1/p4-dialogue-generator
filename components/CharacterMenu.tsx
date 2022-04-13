@@ -4,8 +4,14 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName,
 
   const switchChar = (e: SyntheticEvent<HTMLSelectElement>) => {
     setChar((e.target as HTMLSelectElement).value);
-    setName((e.target as HTMLSelectElement).value);
-    (document.getElementById('nameField') as HTMLTextAreaElement).value = (e.target as HTMLSelectElement).value;
+    // Erase name if "No Portrait" is selected, switch to selected character's name otherwise
+    if ((e.target as HTMLSelectElement).value !== 'None') {
+      setName((e.target as HTMLSelectElement).value);
+      (document.getElementById('nameField') as HTMLTextAreaElement).value = (e.target as HTMLSelectElement).value;
+    } else {
+      setName('');
+      (document.getElementById('nameField') as HTMLTextAreaElement).value = '';
+    }
     return;
   };
 
@@ -58,6 +64,7 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName,
         <option value='Nanako'>Nanako Dojima</option>
         <option value='Naoto'>Naoto Shirogane</option>
         <option value='Naoki'>Naoki Konishi</option>
+        <option value='None'>No Portrait</option>
         <option value='Ms. Kashiwagi'>Noriko Kashiwagi</option>
         <option value='Old Lady Shiroku'>Old Lady Shiroku</option>
         <option value='Old Man Daidara'>Old Man Daidara</option>
