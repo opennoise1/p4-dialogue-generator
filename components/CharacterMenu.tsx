@@ -15,8 +15,6 @@ const CharacterMenu = ({ char, emote, setChar, setEmote, setEmoteMenus, setName,
     return;
   };
 
-  // console.log('Name in Character Menu: ', name);
-
   useEffect(() => {
     fetch('/emotions', {
       method: 'POST',

@@ -10,6 +10,18 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'KoreanHSE';
+  src: url('fonts/KoreanHSE-M') format('opentype');
+  src: url('fonts/KoreanHSE-M.svg#KoreanHSE-M') format('svg'),
+       url('fonts/KoreanHSE-M.ttf') format('truetype'),
+       url('fonts/KoreanHSE-M.woff') format('woff'),
+       url('fonts/KoreanHSE-M.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: 'SkipStd-B';
   background-color: #FEE727;
@@ -67,6 +79,10 @@ body {
 
 .skipDivs {
   font-family: 'SkipStd-B'
+}
+
+.koreanGoldenDivs {
+  font-family: 'KoreanHSE';
 }
 
 /* Subhead */
@@ -335,7 +351,7 @@ svg {
 
 /* Font Selection */
 
-#versionDiv {
+#versionDiv, #fontDiv {
   margin-top: 10px;
 
   display: flex;
@@ -343,15 +359,20 @@ svg {
   align-items: flex-start;
 }
 
-#versionHeader {
+#versionHeader, #fontHeader {
   text-align: left;
   font-size: 12pt;
 }
 
-#versionChoices {
+#versionChoices, #fontChoices {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 10pt;
 }
 
 .versions {

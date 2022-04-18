@@ -12,6 +12,7 @@ const App = () => {
   // Initial values of name text, dialogue text, font and game version, which will determine our dialogue box
   const [name, setName] = useState<string>('Chie');
   const [text, setText] = useState<string>('');
+  const [font, setFont] = useState<string>('SkipStd-B');
   const [version, setVersion] = useState<string>('golden')
   
   // Initial portrait and box that will be rendered 
@@ -40,6 +41,8 @@ const App = () => {
     setCustom,
     version,
     setVersion,
+    font,
+    setFont,
     boxBack,
     setBack,
     boxFront,
