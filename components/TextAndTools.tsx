@@ -2,7 +2,7 @@ import { useEffect, SyntheticEvent } from 'react';
 import Menus from './Menus';
 
 const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, setPortrait, setCustom, name, setName,
-  text, setText, version, setVersion, boxBack, setBack, boxFront, setFront }) => {
+  text, setText, version, setVersion, font, setFont, boxBack, setBack, boxFront, setFront }) => {
 
   const toolProps: any = {
     char,
@@ -129,6 +129,31 @@ const TextAndTools = ({ char, setChar, emote, setEmote, costume, setCostume, set
               onClick={() => { setVersion('golden'); }}
             >
               Persona 4 Golden
+            </div>
+          </div>
+        </div>
+        <div id='fontDiv'>
+          <div id='fontHeader'>Font Select</div>
+          <div id='fontChoices'>
+            <div
+              id='skipSelect'
+              className='versions skipDivs cursor'
+              onClick={() => { setFont('SkipStd-B'); }}
+            >
+              Skip<br></br>
+              <div className='subtitle'>
+                (Latin Script/日本語)
+              </div>
+            </div>
+            <div
+              id='koreanGoldenSelect'
+              className='versions koreanGoldenDivs cursor'
+              onClick={() => { setFont('KoreanHSE'); }}
+            >
+              a한글세상M<br></br>
+              <div className='subtitle'> 
+                (한국어 - 페르소나 4 골든)
+              </div>
             </div>
           </div>
         </div>

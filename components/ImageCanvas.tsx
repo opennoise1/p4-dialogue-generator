@@ -3,7 +3,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import findPosition from '../utils/portraitPositions';
 import findWidth from '../utils/portraitWidths';
 
-const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, boxFront, version, emote, costume }) => {
+const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, boxFront, version, font, emote, costume }) => {
   const portraitCanvas: React.MutableRefObject<any> = useRef(null);
   const boxBackCanvas: React.MutableRefObject<any> = useRef(null);
   const boxFrontCanvas: React.MutableRefObject<any> = useRef(null);
@@ -15,7 +15,7 @@ const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, b
   let pCtx: CanvasRenderingContext2D;
   let bCtx: CanvasRenderingContext2D;
   let tCtx: CanvasRenderingContext2D;
-  const loadedFont = new FontFaceObserver('SkipStd-B');
+  const loadedFont = new FontFaceObserver(`${font}`);
   
   const boxPositions = {
     goldenBack: [61, 546, 1200, 256],
@@ -28,19 +28,19 @@ const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, b
     // Initialize text canvas and clear current text
     tCtx = textCanvas.current.getContext('2d');
     tCtx.clearRect(0, 0, 1275, 800);
-    tCtx.font = `26pt SkipStd-B`;
+   
+    tCtx.font = `26pt ${font}`;
 
     // Check font is loaded before drawing name
     // This ensures name is styled when website is first loaded
     loadedFont.load().then(() => {
-      // Draw or redraw name, using the correct color and positioning based on game version selected
+      // Draw or redraw name, using the correct color and positioning based on game version and font selected
       if (version === 'golden') {
-        tCtx.fillStyle = '#4B2A14'; 
-        tCtx.fillText(name, 80, 615);
-        // console.log('Name in Image Canvas: ', name);
+        tCtx.fillStyle = '#4B2A14';
+        font === 'SkipStd-B' ? tCtx.fillText(name, 80, 615) : tCtx.fillText(name, 80, 612); 
       } else {
         tCtx.fillStyle = '#000000';
-        tCtx.fillText(name, 85, 590);
+        font === 'SkipStd-B' ? tCtx.fillText(name, 85, 590) : tCtx.fillText(name, 85, 587);
       }
     });
 
@@ -60,7 +60,7 @@ const ImageCanvas = ({ portrait, custom, setCustom, name, text, char, boxBack, b
       tCtx.fillText(rows[2], 100, 735);
     }
     return;
-  }, [text, name, version, char]);
+  }, [text, name, version, char, font]);
 
   useEffect(() => {
     // Redraw the portrait when choosing a new box since the portrait's position will change
