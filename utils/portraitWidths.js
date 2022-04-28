@@ -160,6 +160,7 @@ const findWidth = (char, emote, costume) => {
         case 'Work Attire (Summer)': return 298;
         case 'Winter Uniform': return 296;
         case 'Yukata': return 315;
+        default: return 300;
       }
     }
     case 'Yukiko': {
