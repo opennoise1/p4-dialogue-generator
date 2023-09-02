@@ -31,7 +31,7 @@ const Menus = ({ char, setChar, emote, setEmote, costume,
   };
 
   useEffect(() => {
-    setPortrait(`../images/portraits/${char}/${emote}/${char}-${emote}-${costume}.png`);
+    setPortrait(`https://p4generator.s3.amazonaws.com/portraits/${char}/${emote}/${char}-${emote}-${costume}.png`);
     return;
   }, [char, emote, costume]);
 
